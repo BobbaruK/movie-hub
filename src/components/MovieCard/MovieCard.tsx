@@ -1,3 +1,4 @@
+import useGenres from "../../hooks/useGenres";
 import { Movie } from "../../services/movieService";
 import styles from "./MovieCard.module.scss";
 
@@ -25,6 +26,12 @@ const MovieCard = ({ movie }: Props) => {
   const releaseDateUI = `${
     monthNames[month]
   } ${release_date.getDay()}, ${release_date.getFullYear()}`;
+
+  const { data, error, isLoading } = useGenres();
+
+  const filtered = data?.genres.filter((genre) =>
+    movie.genre_ids.includes(genre.id)
+  );
 
   return (
     <div className={["card", styles.scssecoCard].join(" ")}>
@@ -71,25 +78,23 @@ const MovieCard = ({ movie }: Props) => {
           {movie.overview.length > 199 ? "[...]" : ""}
         </p>
         <div className={["card-text", styles.genres].join(" ")}>
+          {/* {error && <div className="alert alert-danger">{error.message}</div>}
+          {isLoading && (
+            <div className="alert alert-info">Loading genres...</div>
+          )} */}
           <ul className={[styles.genresList].join("")}>
-            {/* {movie.genre_ids.map((g) =>
-              appQuery.outputContent.genres
-                ?.filter((genre) => genre.id === g)
-                ?.map((genre) => (
-                  <li
-                    className={[
-                      "badge",
-                      // "border",
-                      // "border-success",
-                      `bg-${
-                        genreIsSelected(genre.id) ? "success" : "secondary"
-                      }`,
-                    ].join(" ")}
-                    key={genre.id}>
-                    {genre.name}
-                  </li>
-                ))
-            )} */}
+            {filtered?.map((genre) => (
+              <li
+                className={[
+                  "badge",
+                  "border",
+                  // "border-warning",
+                  "bg-secondary",
+                ].join(" ")}
+                key={genre.id}>
+                {genre.name}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
