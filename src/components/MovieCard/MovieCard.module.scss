@@ -1,0 +1,32 @@
+.scssecoCard {
+  color: var(--clr-red) !important;
+  flex-basis: 100%;
+  width: 100%;
+  .scssecoCardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .scssecoCardTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .genres {
+    margin: auto 0 1.5rem 0;
+    .genresList {
+      align-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: flex-start;
+      margin: 0;
+      padding: 0;
+
+      list-style-type: none;
+    }
+  }
+}

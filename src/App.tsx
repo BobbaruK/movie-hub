@@ -1,6 +1,8 @@
 import "./App.scss";
+import Filtering from "./components/Filtering";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import MovieGrid from "./components/MovieGrid";
 
 function App() {
   return (
@@ -10,10 +12,10 @@ function App() {
         <div className="container">
           <div className="row">
             <div className="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-2">
-              sidebar
+              <Filtering />
             </div>
             <div className="col-12 col-sm-6 col-md-7 col-lg-8 col-xl-9 col-xxl-10">
-              content
+              <MovieGrid />
             </div>
           </div>
         </div>
