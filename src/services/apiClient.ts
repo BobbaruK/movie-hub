@@ -31,11 +31,6 @@ interface Movie {
   vote_count: number;
 }
 
-export interface Language {
-  iso_639_1: string;
-  english_name: string;
-  name: string;
-}
 
 class APIClient<T> {
   private endpoint: string;
