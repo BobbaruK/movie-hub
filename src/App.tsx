@@ -4,6 +4,8 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MovieGrid from "./components/MovieGrid";
 
+// TODO: Sorting
+
 function App() {
   return (
     <>

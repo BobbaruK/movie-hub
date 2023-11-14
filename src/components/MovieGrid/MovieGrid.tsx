@@ -3,7 +3,14 @@ import MovieCard from "../MovieCard";
 import styles from "./MoviesGrid.module.scss";
 
 const MovieGrid = () => {
-  const { data, error, isLoading } = useMovies();
+  const { data, error, isLoading } = useMovies({
+    params: {
+      page: 1,
+      // with_original_language: filters.language,
+      // with_genres: filters.genres.join(","),
+      // sort_by: filters.sortingBy,
+    },
+  });
 
   if (error) return <div className="alert alert-danger">{error.message}</div>;
 

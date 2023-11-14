@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
+import { AxiosRequestConfig } from "axios";
 import { STALE_TIME } from "../constants";
 import movieService from "../services/movieService";
 
-const useMovies = () =>
+const useMovies = (config?: AxiosRequestConfig) =>
   useQuery({
-    queryKey: ["movies"],
-    queryFn: movieService.getAll,
+    queryKey: ["movies", config?.params],
+    queryFn: () => movieService.getAll(config),
     staleTime: STALE_TIME,
   });
 

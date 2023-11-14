@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 const axiosInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
@@ -14,12 +14,8 @@ class APIClient<T> {
     this.endpoint = endpoint;
   }
 
-  getAll = () => {
-    return axiosInstance
-      .get<T>(this.endpoint, {
-        params: {},
-      })
-      .then((res) => res.data);
+  getAll = (config?: AxiosRequestConfig) => {
+    return axiosInstance.get<T>(this.endpoint, config).then((res) => res.data);
   };
 }
 
