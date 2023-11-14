@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
+import { FaMoon } from "react-icons/fa";
+import { FaSun } from "react-icons/fa6";
 import styles from "./Header.module.scss";
 
+// TODO: separate theme code into a hook or something
 type Theme = "dark" | "light";
 
 const Header = () => {
   const html = document.documentElement as HTMLElement;
 
-  const [theme, setTheme] = useState<string>("dark");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
     html.dataset.bsTheme = "dark";
@@ -19,10 +22,14 @@ const Header = () => {
       <div className="container">
         <div className="row">
           <div className={["col-12", styles.siteHeader__inner].join(" ")}>
-            <h1>Movie hub</h1>
+            <div className={["h1", "m-0"].join(" ")}>Movie hub</div>
             <div className="theme">
               <button
-                className={["btn", "btn-outline-secondary"].join(" ")}
+                className={[
+                  "btn",
+                  "btn-outline-secondary",
+                  styles.siteHeader__themeBtn,
+                ].join(" ")}
                 onClick={() => {
                   if (theme === "light") {
                     html.dataset.bsTheme = "dark";
@@ -34,7 +41,7 @@ const Header = () => {
                   html.dataset.bsTheme = "light";
                   setTheme(() => "light");
                 }}>
-                {theme}
+                {theme === "light" ? <FaMoon /> : <FaSun />}
               </button>
             </div>
           </div>

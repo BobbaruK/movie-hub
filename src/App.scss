@@ -1,3 +1,10 @@
+@import "bootstrap/dist/css/bootstrap.min.css" layer(framework);
+// this error should not happen
+//
+// might be because vs code does not know about this "import into layer" feature
+//
+// it is not breaking my app but it hurts my ocd
+
 #root {
   display: grid;
   grid-template-rows: auto 1fr auto;
