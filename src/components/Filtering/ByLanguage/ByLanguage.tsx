@@ -13,7 +13,12 @@ const ByLanguage = () => {
 
   return (
     <>
-      <div className={["h5", "mt-3", styles.filterLanguageTitle].join(" ")}>
+      <div
+        className={[
+          "h5",
+          "mt-3",
+          "sidebar__subtitle",
+        ].join(" ")}>
         Language
         {filters.language && (
           <button

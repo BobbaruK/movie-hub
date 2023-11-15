@@ -7,8 +7,6 @@ const ByGenre = () => {
 
   const { filters, filterBy } = useFilters();
 
-  console.log(filters.genres.length);
-
   if (error) return <div className="alert alert-danger">{error.message}</div>;
 
   if (isLoading)
@@ -16,7 +14,7 @@ const ByGenre = () => {
 
   return (
     <>
-      <div className={["h5", "mt-3", styles.filterGenreTitle].join(" ")}>
+      <div className={["h5", "mt-3", "sidebar__subtitle"].join(" ")}>
         Genre
         {filters.genres.length !== 0 && (
           <button

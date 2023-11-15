@@ -1,14 +1,14 @@
 import useFilters from "../../hooks/useFilters";
 import ByGenre from "./ByGenre";
 import ByLanguage from "./ByLanguage";
-import styles from "./Filtering.module.scss";
+// import styles from "./Filtering.module.scss";
 
 const Filtering = () => {
   const { filters, filterBy } = useFilters();
 
   return (
     <>
-      <h2 className={[styles.filterTitle].join(" ")}>
+      <div className={["h3", "sidebar__title"].join(" ")}>
         Filtering
         {(filters.genres.length !== 0 || filters.language) && (
           <button
@@ -26,7 +26,7 @@ const Filtering = () => {
             Reset
           </button>
         )}
-      </h2>
+      </div>
       <ByGenre />
       <ByLanguage />
     </>
