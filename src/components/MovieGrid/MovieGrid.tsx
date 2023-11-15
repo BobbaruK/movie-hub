@@ -8,7 +8,7 @@ const MovieGrid = () => {
 
   const { data, error, isLoading } = useMovies({
     params: {
-      page: 1,
+      page: filters.page,
       with_original_language: filters.language,
       with_genres: filters.genres.join(","),
       sort_by: filters.sorting,
@@ -18,7 +18,7 @@ const MovieGrid = () => {
   if (error) return <div className="alert alert-danger">{error.message}</div>;
 
   if (isLoading)
-    return <div className="alert alert-info">Loading genres...</div>;
+    return <div className="alert alert-info">Loading movies...</div>;
 
   return (
     <>

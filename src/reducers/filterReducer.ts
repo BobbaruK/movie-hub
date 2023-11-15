@@ -1,6 +1,7 @@
 export interface Filters {
   genres: number[];
   language: string;
+  page: number;
   sorting: string;
 }
 

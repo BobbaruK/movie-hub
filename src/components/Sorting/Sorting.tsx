@@ -70,10 +70,7 @@ const Sorting = () => {
           });
         }}
         className={["form-select", "mb-5"].join(" ")}
-        value={filters.sorting}
-        defaultValue={
-          SortBy.popularityDesc // default from the api
-        }>
+        value={filters.sorting}>
         {sorter.map((sort) => (
           <option key={sort.value} value={sort.value}>
             {sort.label}
