@@ -5,11 +5,11 @@ import styles from "./MoviesGrid.module.scss";
 
 const MovieGrid = () => {
   const { filters } = useFilters();
-  
+
   const { data, error, isLoading } = useMovies({
     params: {
       page: 1,
-      // with_original_language: filters.language,
+      with_original_language: filters.language,
       with_genres: filters.genres.join(","),
       // sort_by: filters.sortingBy,
     },

@@ -1,7 +1,9 @@
+import useFilters from "../../../hooks/useFilters";
 import useLanguages from "../../../hooks/useLanguages";
 import styles from "./ByLanguage.module.scss";
 
 const ByLanguage = () => {
+  const { filters, filterBy } = useFilters();
   const { data, error, isLoading } = useLanguages();
 
   if (error) return <div className="alert alert-danger">{error.message}</div>;
@@ -16,9 +18,13 @@ const ByLanguage = () => {
       </div>
       <select
         className="form-select"
-        onChange={(e) => console.log(e.target.value)}
-        // value={appQuery.filterQuery.language}
-      >
+        onChange={(e) =>
+          filterBy({
+            type: "ByLanguage",
+            language: e.target.value,
+          })
+        }
+        value={filters.language}>
         <option value="">All</option>
         {data?.map((language) => (
           <option key={language.iso_639_1} value={language.iso_639_1}>
