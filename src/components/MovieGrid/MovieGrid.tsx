@@ -11,7 +11,7 @@ const MovieGrid = () => {
       page: 1,
       with_original_language: filters.language,
       with_genres: filters.genres.join(","),
-      // sort_by: filters.sortingBy,
+      sort_by: filters.sorting,
     },
   });
 

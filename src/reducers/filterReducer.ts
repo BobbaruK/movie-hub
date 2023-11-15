@@ -1,6 +1,7 @@
 export interface Filters {
   genres: number[];
   language: string;
+  sorting: string;
 }
 
 interface FilterByGenre {
@@ -13,7 +14,12 @@ interface FilterByLanguage {
   language: string;
 }
 
-export type FilterAction = FilterByGenre | FilterByLanguage;
+interface Sorting {
+  type: "Sorting";
+  sorting: string;
+}
+
+export type FilterAction = FilterByGenre | FilterByLanguage | Sorting;
 
 const filterReducer = (filters: Filters, filterBy: FilterAction): Filters => {
   const { type } = filterBy;
@@ -38,6 +44,9 @@ const filterReducer = (filters: Filters, filterBy: FilterAction): Filters => {
 
     case "ByLanguage":
       return { ...filters, language: filterBy.language };
+
+    case "Sorting":
+      return { ...filters, sorting: filterBy.sorting };
   }
 };
 
