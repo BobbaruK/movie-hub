@@ -6,8 +6,8 @@ interface FilterContextType {
   filterBy: Dispatch<FilterAction>;
 }
 
-const FilterContext = React.createContext<FilterContextType>(
+const FiltersContext = React.createContext<FilterContextType>(
   {} as FilterContextType
 );
 
-export default FilterContext;
+export default FiltersContext;

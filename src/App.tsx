@@ -1,23 +1,16 @@
-import { useReducer } from "react";
 import "./App.scss";
+import FilterContext from "./FilterContext";
 import Filtering from "./components/Filtering";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MovieGrid from "./components/MovieGrid";
-import filterReducer from "./reducers/filterReducer";
-import FilterContext from "./contexts/filterContext";
 
 // TODO: Sorting
 
 function App() {
-  const [filters, filterBy] = useReducer(filterReducer, {
-    genres: [],
-    language: "",
-  });
-
   return (
     <>
-      <FilterContext.Provider value={{ filters, filterBy }}>
+      <FilterContext>
         <Header />
         <main>
           <div className="container">
@@ -32,7 +25,7 @@ function App() {
           </div>
         </main>
         <Footer />
-      </FilterContext.Provider>
+      </FilterContext>
     </>
   );
 }
