@@ -15,6 +15,18 @@ const ByLanguage = () => {
     <>
       <div className={["h5", "mt-3", styles.filterLanguageTitle].join(" ")}>
         Language
+        {filters.language && (
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={() =>
+              filterBy({
+                type: "ByLanguage",
+                language: "",
+              })
+            }>
+            Reset
+          </button>
+        )}
       </div>
       <select
         className="form-select"
