@@ -7,6 +7,8 @@ const ByGenre = () => {
 
   const { filters, filterBy } = useFilters();
 
+  console.log(filters.genres.length);
+
   if (error) return <div className="alert alert-danger">{error.message}</div>;
 
   if (isLoading)
@@ -16,6 +18,18 @@ const ByGenre = () => {
     <>
       <div className={["h5", "mt-3", styles.filterGenreTitle].join(" ")}>
         Genre
+        {filters.genres.length !== 0 && (
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={() =>
+              filterBy({
+                type: "ByGenre",
+                genreId: 0, // 0 means no genre
+              })
+            }>
+            Reset
+          </button>
+        )}
       </div>
       <ul className={["genresList", styles.cardGenre].join(" ")}>
         {data?.genres.map((genre) => (

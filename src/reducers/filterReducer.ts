@@ -21,11 +21,17 @@ const filterReducer = (filters: Filters, filterBy: FilterAction): Filters => {
   switch (type) {
     case "ByGenre":
       const genresSelected = [...filters.genres];
+
       if (genresSelected.includes(filterBy.genreId)) {
         const ind = genresSelected.indexOf(filterBy.genreId);
         genresSelected.splice(ind, 1);
 
         return { ...filters, genres: genresSelected };
+      }
+
+      if (filterBy.genreId === 0) {
+        // 0 means no genre (reset)
+        return { ...filters, genres: [] };
       }
 
       return { ...filters, genres: [...filters.genres, filterBy.genreId] };
