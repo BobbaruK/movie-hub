@@ -17,17 +17,6 @@ const ByGenre = () => {
       <div className={["h5", "mt-3", styles.filterGenreTitle].join(" ")}>
         Genre
       </div>
-
-      {/*  */}
-      {/*  */}
-      {/*  */}
-      {filters.genres.map((g) => (
-        <p key={g}>{g}</p>
-      ))}
-      {/*  */}
-      {/*  */}
-      {/*  */}
-
       <ul className={["genresList", styles.cardGenre].join(" ")}>
         {data?.genres.map((genre) => (
           <li key={genre.id}>
