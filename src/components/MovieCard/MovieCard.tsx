@@ -1,3 +1,4 @@
+import useConfig from "../../hooks/useConfig";
 import useFilters from "../../hooks/useFilters";
 import useGenres from "../../hooks/useGenres";
 import { Movie } from "../../services/movieService";
@@ -36,10 +37,19 @@ const MovieCard = ({ movie }: Props) => {
 
   const { filters } = useFilters();
 
+  const { images } = useConfig();
+
+  const posterPath = (posterPath: string | null) => {
+    if (posterPath !== null)
+      return images?.secure_base_url + images?.poster_sizes[4] + posterPath;
+
+    return "https://placehold.co/500x750?text=Poster+Missing";
+  };
+
   return (
     <div className={["card", styles.scssecoCard].join(" ")}>
       <img
-        src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
+        src={posterPath(movie.poster_path)}
         className="card-img-top"
         alt={movie.title}
       />
