@@ -40,10 +40,10 @@ const MovieCard = ({ movie }: Props) => {
   const { images } = useConfig();
 
   const posterPath = (posterPath: string | null) => {
-    if (posterPath !== null)
-      return images?.secure_base_url + images?.poster_sizes[4] + posterPath;
+    if (posterPath === null)
+      return "https://placehold.co/500x750?text=Poster+Missing";
 
-    return "https://placehold.co/500x750?text=Poster+Missing";
+    return images?.secure_base_url + images?.poster_sizes[4] + posterPath;
   };
 
   return (

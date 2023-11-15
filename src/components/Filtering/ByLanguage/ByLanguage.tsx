@@ -1,6 +1,6 @@
 import useFilters from "../../../hooks/useFilters";
 import useLanguages from "../../../hooks/useLanguages";
-import styles from "./ByLanguage.module.scss";
+// import styles from "./ByLanguage.module.scss";
 
 const ByLanguage = () => {
   const { filters, filterBy } = useFilters();

@@ -10,8 +10,6 @@ interface Props {
 const ConfigContext = ({ children }: Props) => {
   const { data, error } = useConfigurationDetails();
 
-  console.log(data);
-
   return (
     <ConfigsContext.Provider value={data || ({} as Configuration)}>
       <div className="toast-container position-fixed bottom-0 end-0 p-3">
