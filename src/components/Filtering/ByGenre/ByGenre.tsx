@@ -1,15 +1,12 @@
-import { useReducer } from "react";
+import { useContext } from "react";
+import FilterContext from "../../../contexts/filterContext";
 import useGenres from "../../../hooks/useGenres";
-import filterReducer from "../../../reducers/filterReducer";
 import styles from "./ByGenre.module.scss";
 
 const ByGenre = () => {
   const { data, error, isLoading } = useGenres();
 
-  const [filters, filterBy] = useReducer(filterReducer, {
-    genres: [],
-    language: "",
-  });
+  const { filters, filterBy } = useContext(FilterContext);
 
   if (error) return <div className="alert alert-danger">{error.message}</div>;
 

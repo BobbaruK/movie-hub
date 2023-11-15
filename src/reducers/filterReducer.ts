@@ -13,7 +13,7 @@ interface FilterByLanguage {
   language: string;
 }
 
-type FilterAction = FilterByGenre | FilterByLanguage;
+export type FilterAction = FilterByGenre | FilterByLanguage;
 
 const filterReducer = (filters: Filters, filterBy: FilterAction): Filters => {
   const { type } = filterBy;
