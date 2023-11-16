@@ -7,8 +7,9 @@ import Header from "./components/Header";
 import MovieGrid from "./components/MovieGrid";
 import { Sorting } from "./components/Sorting";
 
-// TODO: Sorting
+// TODO: test env var for api key on netlify
 
+// TODO: option for pagination or infinite querying
 function App() {
   return (
     <>
