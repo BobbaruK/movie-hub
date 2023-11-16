@@ -68,6 +68,10 @@ const Sorting = () => {
             type: "Sorting",
             sorting: e.target.value,
           });
+          filterBy({
+            type: "ChangePage",
+            page: 1,
+          });
         }}
         className={["form-select", "mb-5"].join(" ")}
         value={filters.sorting}>
