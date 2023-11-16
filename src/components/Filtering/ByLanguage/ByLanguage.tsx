@@ -13,34 +13,37 @@ const ByLanguage = () => {
 
   return (
     <>
-      <div
-        className={[
-          "h5",
-          "mt-3",
-          "sidebar__subtitle",
-        ].join(" ")}>
+      <div className={["h5", "mt-3", "sidebar__subtitle"].join(" ")}>
         Language
         {filters.language && (
           <button
             className="btn btn-primary btn-sm"
-            onClick={() =>
+            onClick={() => {
               filterBy({
                 type: "ByLanguage",
                 language: "",
-              })
-            }>
+              });
+              filterBy({
+                type: "ChangePage",
+                page: 1,
+              });
+            }}>
             Reset
           </button>
         )}
       </div>
       <select
         className="form-select"
-        onChange={(e) =>
+        onChange={(e) => {
           filterBy({
             type: "ByLanguage",
             language: e.target.value,
-          })
-        }
+          });
+          filterBy({
+            type: "ChangePage",
+            page: 1,
+          });
+        }}
         value={filters.language}>
         <option value="">All</option>
         {data?.map((language) => (

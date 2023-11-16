@@ -22,6 +22,10 @@ const Filtering = () => {
                 type: "ByLanguage",
                 language: "",
               });
+              filterBy({
+                type: "ChangePage",
+                page: 1,
+              });
             }}>
             Reset
           </button>

@@ -19,12 +19,16 @@ const ByGenre = () => {
         {filters.genres.length !== 0 && (
           <button
             className="btn btn-primary btn-sm"
-            onClick={() =>
+            onClick={() => {
               filterBy({
                 type: "ByGenre",
                 genreId: 0, // 0 means no genre
-              })
-            }>
+              });
+              filterBy({
+                type: "ChangePage",
+                page: 1,
+              });
+            }}>
             Reset
           </button>
         )}
@@ -40,12 +44,16 @@ const ByGenre = () => {
                 }`,
                 "badge",
               ].join(" ")}
-              onClick={() =>
+              onClick={() => {
                 filterBy({
                   type: "ByGenre",
                   genreId: genre.id,
-                })
-              }>
+                });
+                filterBy({
+                  type: "ChangePage",
+                  page: 1,
+                });
+              }}>
               {/* {genre.id}- */}
               {genre.name}
             </button>
