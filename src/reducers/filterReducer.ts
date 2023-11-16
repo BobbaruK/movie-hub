@@ -20,7 +20,16 @@ interface Sorting {
   sorting: string;
 }
 
-export type FilterAction = FilterByGenre | FilterByLanguage | Sorting;
+interface ChangePage {
+  type: "ChangePage";
+  page: number;
+}
+
+export type FilterAction =
+  | FilterByGenre
+  | FilterByLanguage
+  | Sorting
+  | ChangePage;
 
 const filterReducer = (filters: Filters, filterBy: FilterAction): Filters => {
   const { type } = filterBy;
@@ -48,6 +57,9 @@ const filterReducer = (filters: Filters, filterBy: FilterAction): Filters => {
 
     case "Sorting":
       return { ...filters, sorting: filterBy.sorting };
+
+    case "ChangePage":
+      return { ...filters, page: filterBy.page };
   }
 };
 
