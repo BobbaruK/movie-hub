@@ -1,5 +1,5 @@
 import "./App.scss";
-import ConfigContext from "./ConfigContext";
+import { Config } from "./Config";
 import FilterContext from "./FilterContext";
 import Filtering from "./components/Filtering";
 import Footer from "./components/Footer";
@@ -13,7 +13,7 @@ import { Sorting } from "./components/Sorting";
 function App() {
   return (
     <>
-      <ConfigContext>
+      <Config>
         <FilterContext>
           <Header />
           <main>
@@ -31,7 +31,7 @@ function App() {
           </main>
           <Footer />
         </FilterContext>
-      </ConfigContext>
+      </Config>
     </>
   );
 }

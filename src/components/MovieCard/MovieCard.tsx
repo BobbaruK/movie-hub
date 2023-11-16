@@ -1,4 +1,5 @@
-import useConfig from "../../hooks/useConfig";
+
+import useConfigContext from "../../Config/useConfigContext";
 import useFilters from "../../hooks/useFilters";
 import useGenres from "../../hooks/useGenres";
 import { Movie } from "../../services/movieService";
@@ -37,7 +38,7 @@ const MovieCard = ({ movie }: Props) => {
 
   const { filters } = useFilters();
 
-  const { images } = useConfig();
+  const { images } = useConfigContext();
 
   const posterPath = (posterPath: string | null) => {
     if (posterPath === null)

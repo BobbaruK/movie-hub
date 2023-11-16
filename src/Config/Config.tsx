@@ -1,17 +1,17 @@
 import { ReactNode } from "react";
-import ConfigsContext from "./contexts/configContext";
-import useConfigurationDetails from "./hooks/useConfigurationDetails";
-import { Configuration } from "./reducers/configReducer";
+import useConfigResponse from "./useConfigResponse";
+import ConfigContext from "./configContext";
+import { Configuration } from "./configReducer";
 
 interface Props {
   children: ReactNode;
 }
 
-const ConfigContext = ({ children }: Props) => {
-  const { data, error } = useConfigurationDetails();
+const Config = ({ children }: Props) => {
+  const { data, error } = useConfigResponse();
 
   return (
-    <ConfigsContext.Provider value={data || ({} as Configuration)}>
+    <ConfigContext.Provider value={data || ({} as Configuration)}>
       <div className="toast-container position-fixed bottom-0 end-0 p-3">
         <div
           id="liveToast"
@@ -37,8 +37,8 @@ const ConfigContext = ({ children }: Props) => {
         </div>
       </div>
       {children}
-    </ConfigsContext.Provider>
+    </ConfigContext.Provider>
   );
 };
 
-export default ConfigContext;
+export default Config;
