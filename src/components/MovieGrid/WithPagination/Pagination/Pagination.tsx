@@ -1,5 +1,5 @@
-import useFilters from "../../hooks/useFilters";
-import useMovies from "../../hooks/useMovies";
+import useFilters from "../../../../hooks/useFilters";
+import useMovies from "../../../../hooks/useMovies";
 import styles from "./Pagination.module.scss";
 
 const Pagination = () => {

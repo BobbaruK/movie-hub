@@ -1,36 +1,17 @@
-import useFilters from "../../hooks/useFilters";
-import useMovies from "../../hooks/useMovies";
-import MovieCard from "../MovieCard";
-import Pagination from "../Pagination";
-import styles from "./MoviesGrid.module.scss";
+import WithPagination from "./WithPagination";
+
+export const enum gridType {
+  pagination = "pagination",
+  loadMore = "loadMore",
+  infinite = "infinite",
+}
 
 const MovieGrid = () => {
-  const { filters } = useFilters();
-
-  const { data, error, isLoading } = useMovies({
-    params: {
-      page: filters.page,
-      with_original_language: filters.language,
-      with_genres: filters.genres.join(","),
-      sort_by: filters.sorting,
-    },
-  });
-
-  if (error) return <div className="alert alert-danger">{error.message}</div>;
-
-  if (isLoading)
-    return <div className="alert alert-info">Loading movies...</div>;
-
+  const grid = gridType.pagination;
   return (
     <>
       <h3>Movie Grid</h3>
-      <Pagination />
-      <div className={[styles.cardsWrapper].join(" ")}>
-        {data?.results.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </div>
-      <Pagination />
+      {grid === "pagination" && <WithPagination />}
     </>
   );
 };
