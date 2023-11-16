@@ -1,11 +1,12 @@
-import useFilters from "../../../hooks/useFilters";
+
+import useFilterContext from "../../../Filter/useFilterContext";
 import useMovies from "../../../hooks/useMovies";
 import MovieCard from "../../MovieCard";
-import Pagination from "./Pagination";
 import styles from "../MoviesGrid.module.scss";
+import Pagination from "./Pagination";
 
 const WithPagination = () => {
-  const { filters } = useFilters();
+  const { filters } = useFilterContext();
 
   const { data, error, isLoading } = useMovies({
     params: {

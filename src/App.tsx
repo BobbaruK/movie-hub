@@ -1,6 +1,6 @@
 import "./App.scss";
 import { Config } from "./Config";
-import FilterContext from "./FilterContext";
+import { Filter } from "./Filter";
 import Filtering from "./components/Filtering";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Config>
-        <FilterContext>
+        <Filter>
           <Header />
           <main>
             <div className="container">
@@ -30,7 +30,7 @@ function App() {
             </div>
           </main>
           <Footer />
-        </FilterContext>
+        </Filter>
       </Config>
     </>
   );

@@ -1,9 +1,10 @@
-import useFilters from "../../../../hooks/useFilters";
+
+import useFilterContext from "../../../../Filter/useFilterContext";
 import useMovies from "../../../../hooks/useMovies";
 import styles from "./Pagination.module.scss";
 
 const Pagination = () => {
-  const { filters, filterBy } = useFilters();
+  const { filters, filterBy } = useFilterContext();
   const { data } = useMovies({
     params: {
       page: filters.page,

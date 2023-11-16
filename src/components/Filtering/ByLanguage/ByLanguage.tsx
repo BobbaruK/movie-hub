@@ -1,9 +1,10 @@
-import useFilters from "../../../hooks/useFilters";
+
+import useFilterContext from "../../../Filter/useFilterContext";
 import useLanguages from "../../../hooks/useLanguages";
 // import styles from "./ByLanguage.module.scss";
 
 const ByLanguage = () => {
-  const { filters, filterBy } = useFilters();
+  const { filters, filterBy } = useFilterContext();
   const { data, error, isLoading } = useLanguages();
 
   if (error) return <div className="alert alert-danger">{error.message}</div>;

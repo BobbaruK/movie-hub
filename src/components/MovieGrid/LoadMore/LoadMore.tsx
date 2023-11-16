@@ -1,11 +1,11 @@
 import React from "react";
-import useFilters from "../../../hooks/useFilters";
+import useFilterContext from "../../../Filter/useFilterContext";
 import useInfiniteMovies from "../../../hooks/useInfiniteMovies";
 import MovieCard from "../../MovieCard";
 import styles from "../MoviesGrid.module.scss";
 
 const LoadMore = () => {
-  const { filters } = useFilters();
+  const { filters } = useFilterContext();
 
   const {
     data,

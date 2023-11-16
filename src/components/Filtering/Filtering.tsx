@@ -1,10 +1,11 @@
-import useFilters from "../../hooks/useFilters";
+
+import useFilterContext from "../../Filter/useFilterContext";
 import ByGenre from "./ByGenre";
 import ByLanguage from "./ByLanguage";
 // import styles from "./Filtering.module.scss";
 
 const Filtering = () => {
-  const { filters, filterBy } = useFilters();
+  const { filters, filterBy } = useFilterContext();
 
   return (
     <>

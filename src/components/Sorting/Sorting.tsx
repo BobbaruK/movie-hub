@@ -1,4 +1,4 @@
-import useFilters from "../../hooks/useFilters";
+import useFilterContext from "../../Filter/useFilterContext";
 
 export const enum SortBy {
   popularityAsc = "popularity.asc",
@@ -57,7 +57,7 @@ const Sorting = () => {
     },
   ];
 
-  const { filters, filterBy } = useFilters();
+  const { filters, filterBy } = useFilterContext();
 
   return (
     <>

@@ -1,11 +1,12 @@
+
+import useFilterContext from "../Filter/useFilterContext";
 import { Genre } from "../services/genreService";
 import { Language } from "../services/languageService";
-import useFilters from "./useFilters";
 import useGenres from "./useGenres";
 import useLanguages from "./useLanguages";
 
 const useMovieGridTitle = () => {
-  const { filters } = useFilters();
+  const { filters } = useFilterContext();
   const { data: languages } = useLanguages();
   const { data: genres } = useGenres();
 

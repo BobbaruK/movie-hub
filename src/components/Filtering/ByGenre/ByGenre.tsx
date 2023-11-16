@@ -1,11 +1,11 @@
-import useFilters from "../../../hooks/useFilters";
+import useFilterContext from "../../../Filter/useFilterContext";
 import useGenres from "../../../hooks/useGenres";
 import styles from "./ByGenre.module.scss";
 
 const ByGenre = () => {
   const { data, error, isLoading } = useGenres();
 
-  const { filters, filterBy } = useFilters();
+  const { filters, filterBy } = useFilterContext();
 
   if (error) return <div className="alert alert-danger">{error.message}</div>;
 

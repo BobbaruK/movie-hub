@@ -1,6 +1,6 @@
 
 import useConfigContext from "../../Config/useConfigContext";
-import useFilters from "../../hooks/useFilters";
+import useFilterContext from "../../Filter/useFilterContext";
 import useGenres from "../../hooks/useGenres";
 import { Movie } from "../../services/movieService";
 import styles from "./MovieCard.module.scss";
@@ -36,7 +36,7 @@ const MovieCard = ({ movie }: Props) => {
     movie.genre_ids.includes(genre.id)
   );
 
-  const { filters } = useFilters();
+  const { filters } = useFilterContext();
 
   const { images } = useConfigContext();
 
