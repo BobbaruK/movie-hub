@@ -4,7 +4,7 @@ interface GenreResponse {
   genres: Genre[];
 }
 
-interface Genre {
+export interface Genre {
   id: number;
   name: string;
 }
