@@ -13,7 +13,7 @@ const Infinite = () => {
     error,
     isLoading,
     fetchNextPage,
-    isFetchingNextPage,
+    // isFetchingNextPage,
     hasNextPage,
   } = useInfiniteMovies({
     params: {
