@@ -1,3 +1,4 @@
+import Infinite from "./Infinite";
 import LoadMore from "./LoadMore";
 import Title from "./Title";
 import WithPagination from "./WithPagination";
@@ -8,7 +9,7 @@ interface GridType {
 
 const MovieGrid = () => {
   const gridType: GridType = {
-    type: "loadMore",
+    type: "infinite",
   };
 
   return (
@@ -18,6 +19,7 @@ const MovieGrid = () => {
       <div className="gridWrapper mb-5">
         {gridType.type === "pagination" && <WithPagination />}
         {gridType.type === "loadMore" && <LoadMore />}
+        {gridType.type === "infinite" && <Infinite />}
       </div>
     </>
   );
