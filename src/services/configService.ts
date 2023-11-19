@@ -1,3 +1,5 @@
+import APIClient from "./apiClient";
+
 export interface Configuration {
   images: ImagesConfig;
   change_keys: string[];
@@ -13,8 +15,4 @@ interface ImagesConfig {
   still_sizes: string[];
 }
 
-const configReducer = (config: Configuration) => {
-  return config;
-};
-
-export default configReducer;
+export default new APIClient<Configuration>("/configuration");

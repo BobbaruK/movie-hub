@@ -1,4 +1,4 @@
-import useConfigContext from "../../Config/useConfigContext";
+import useConfig from "../../hooks/useConfig";
 import useGenres from "../../hooks/useGenres";
 import { Movie } from "../../services/movieService";
 import useFilteringMovies from "../../stores/filterStore";
@@ -37,13 +37,20 @@ const MovieCard = ({ movie }: Props) => {
 
   const { genres } = useFilteringMovies();
 
-  const { images } = useConfigContext();
+  const { data: config } = useConfig();
 
   const posterPath = (posterPath: string | null) => {
     if (posterPath === null)
       return "https://placehold.co/500x750?text=Poster+Missing";
 
-    return images?.secure_base_url + images?.poster_sizes[4] + posterPath;
+    if (config)
+      return (
+        config?.images.secure_base_url +
+        config?.images.poster_sizes[4] +
+        posterPath
+      );
+
+    return "https://placehold.co/500x750?text=Config+Error";
   };
 
   return (

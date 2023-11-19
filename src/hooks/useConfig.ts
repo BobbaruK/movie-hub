@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { STALE_TIME } from "../constants";
-import configService from "./configService";
+import configService from "../services/configService";
 
-const useConfigResponse = () =>
+const useConfig = () =>
   useQuery({
     queryKey: ["config"],
     queryFn: configService.getAll,
     staleTime: STALE_TIME,
   });
 
-export default useConfigResponse;
+export default useConfig;
