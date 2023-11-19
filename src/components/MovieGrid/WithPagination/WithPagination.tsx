@@ -1,19 +1,19 @@
 
-import useFilterContext from "../../../Filter/useFilterContext";
 import useMovies from "../../../hooks/useMovies";
+import useFilteringMovies from "../../../stores/filterStore";
 import MovieCard from "../../MovieCard";
 import styles from "../MoviesGrid.module.scss";
 import Pagination from "./Pagination";
 
 const WithPagination = () => {
-  const { filters } = useFilterContext();
+  const { genres, language, page, sorting } = useFilteringMovies();
 
   const { data, error, isLoading } = useMovies({
     params: {
-      page: filters.page,
-      with_original_language: filters.language,
-      with_genres: filters.genres.join(","),
-      sort_by: filters.sorting,
+      page: page,
+      with_original_language: language,
+      with_genres: genres.join(","),
+      sort_by: sorting,
     },
   });
 

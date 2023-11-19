@@ -9,7 +9,7 @@ interface GridType {
 
 const MovieGrid = () => {
   const gridType: GridType = {
-    type: "infinite",
+    type: "pagination",
   };
 
   return (

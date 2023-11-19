@@ -1,17 +1,4 @@
-import useFilterContext from "../../Filter/useFilterContext";
-
-export const enum SortBy {
-  popularityAsc = "popularity.asc",
-  popularityDesc = "popularity.desc",
-  revenueAsc = "revenue.asc",
-  revenueDesc = "revenue.desc",
-  releaseDateAsc = "primary_release_date.asc",
-  releaseDateDesc = "primary_release_date.desc",
-  voteAverageAsc = "vote_average.asc",
-  voteAverageDesc = "vote_average.desc",
-  voteCountAsc = "vote_count.asc",
-  voteCountDesc = "vote_count.desc",
-}
+import useFilteringMovies, { SortBy } from "../../stores/filterStore";
 
 const Sorting = () => {
   const sorter = [
@@ -57,24 +44,15 @@ const Sorting = () => {
     },
   ];
 
-  const { filters, filterBy } = useFilterContext();
+  const { sorting, setSorting } = useFilteringMovies();
 
   return (
     <>
       <div className={["h3", "sidebar__title"].join(" ")}>Sorting</div>
       <select
-        onChange={(e) => {
-          filterBy({
-            type: "Sorting",
-            sorting: e.target.value,
-          });
-          filterBy({
-            type: "ChangePage",
-            page: 1,
-          });
-        }}
+        onChange={(e) => setSorting(e.target.value)}
         className={["form-select", "mb-5"].join(" ")}
-        value={filters.sorting}>
+        value={sorting}>
         {sorter.map((sort) => (
           <option key={sort.value} value={sort.value}>
             {sort.label}

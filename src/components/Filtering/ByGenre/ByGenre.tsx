@@ -1,11 +1,10 @@
-import useFilterContext from "../../../Filter/useFilterContext";
 import useGenres from "../../../hooks/useGenres";
+import useFilteringMovies from "../../../stores/filterStore";
 import styles from "./ByGenre.module.scss";
 
 const ByGenre = () => {
   const { data, error, isLoading } = useGenres();
-
-  const { filters, filterBy } = useFilterContext();
+  const { genres, setGenres, resetGenres } = useFilteringMovies();
 
   if (error) return <div className="alert alert-danger">{error.message}</div>;
 
@@ -16,19 +15,10 @@ const ByGenre = () => {
     <>
       <div className={["h5", "mt-3", "sidebar__subtitle"].join(" ")}>
         Genre
-        {filters.genres.length !== 0 && (
+        {genres.length !== 0 && (
           <button
             className="btn btn-primary btn-sm"
-            onClick={() => {
-              filterBy({
-                type: "ByGenre",
-                genreId: 0, // 0 means no genre
-              });
-              filterBy({
-                type: "ChangePage",
-                page: 1,
-              });
-            }}>
+            onClick={() => resetGenres()}>
             Reset
           </button>
         )}
@@ -39,22 +29,10 @@ const ByGenre = () => {
             <button
               className={[
                 "btn",
-                `btn-${
-                  filters.genres.includes(genre.id) ? "success" : "secondary"
-                }`,
+                `btn-${genres.includes(genre.id) ? "success" : "secondary"}`,
                 "badge",
               ].join(" ")}
-              onClick={() => {
-                filterBy({
-                  type: "ByGenre",
-                  genreId: genre.id,
-                });
-                filterBy({
-                  type: "ChangePage",
-                  page: 1,
-                });
-              }}>
-              {/* {genre.id}- */}
+              onClick={() => setGenres(genre.id)}>
               {genre.name}
             </button>
           </li>

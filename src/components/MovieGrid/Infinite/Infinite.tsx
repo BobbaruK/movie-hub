@@ -1,12 +1,12 @@
 import React from "react";
-import useFilterContext from "../../../Filter/useFilterContext";
+import InfiniteScroll from "react-infinite-scroll-component";
 import useInfiniteMovies from "../../../hooks/useInfiniteMovies";
+import useFilteringMovies from "../../../stores/filterStore";
 import MovieCard from "../../MovieCard";
 import styles from "../MoviesGrid.module.scss";
-import InfiniteScroll from "react-infinite-scroll-component";
 
 const Infinite = () => {
-  const { filters } = useFilterContext();
+  const { language, genres, sorting } = useFilteringMovies();
 
   const {
     data,
@@ -17,9 +17,9 @@ const Infinite = () => {
     hasNextPage,
   } = useInfiniteMovies({
     params: {
-      with_original_language: filters.language,
-      with_genres: filters.genres.join(","),
-      sort_by: filters.sorting,
+      with_original_language: language,
+      with_genres: genres.join(","),
+      sort_by: sorting,
     },
   });
 

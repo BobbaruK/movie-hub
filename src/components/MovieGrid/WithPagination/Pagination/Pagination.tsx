@@ -1,16 +1,24 @@
 
-import useFilterContext from "../../../../Filter/useFilterContext";
 import useMovies from "../../../../hooks/useMovies";
+import useFilteringMovies from "../../../../stores/filterStore";
 import styles from "./Pagination.module.scss";
 
 const Pagination = () => {
-  const { filters, filterBy } = useFilterContext();
+  const {
+    page,
+    increasePageNumber,
+    decreasePageNumber,
+    language,
+    genres,
+    sorting,
+  } = useFilteringMovies();
+  
   const { data } = useMovies({
     params: {
-      page: filters.page,
-      with_original_language: filters.language,
-      with_genres: filters.genres.join(","),
-      sort_by: filters.sorting,
+      page: page,
+      with_original_language: language,
+      with_genres: genres.join(","),
+      sort_by: sorting,
     },
   });
 
@@ -18,13 +26,8 @@ const Pagination = () => {
     <div className={[styles.pagination].join(" ")}>
       <button
         className="btn btn-primary"
-        disabled={filters.page === 1}
-        onClick={() => {
-          filterBy({
-            type: "ChangePage",
-            page: filters.page - 1,
-          });
-        }}>
+        disabled={page === 1}
+        onClick={() => decreasePageNumber()}>
         Prev
       </button>
       <div>
@@ -32,13 +35,8 @@ const Pagination = () => {
       </div>
       <button
         className="btn btn-primary"
-        disabled={filters.page === data?.total_pages}
-        onClick={() => {
-          filterBy({
-            type: "ChangePage",
-            page: filters.page + 1,
-          });
-        }}>
+        disabled={page === data?.total_pages}
+        onClick={() => increasePageNumber()}>
         Next
       </button>
     </div>

@@ -1,8 +1,7 @@
-
 import useConfigContext from "../../Config/useConfigContext";
-import useFilterContext from "../../Filter/useFilterContext";
 import useGenres from "../../hooks/useGenres";
 import { Movie } from "../../services/movieService";
+import useFilteringMovies from "../../stores/filterStore";
 import styles from "./MovieCard.module.scss";
 
 interface Props {
@@ -36,7 +35,7 @@ const MovieCard = ({ movie }: Props) => {
     movie.genre_ids.includes(genre.id)
   );
 
-  const { filters } = useFilterContext();
+  const { genres } = useFilteringMovies();
 
   const { images } = useConfigContext();
 
@@ -99,9 +98,7 @@ const MovieCard = ({ movie }: Props) => {
                   "badge",
                   "border",
                   // "border-warning",
-                  `bg-${
-                    filters.genres.includes(genre.id) ? "success" : "secondary"
-                  }`,
+                  `bg-${genres.includes(genre.id) ? "success" : "secondary"}`,
                 ].join(" ")}
                 key={genre.id}>
                 {genre.name}

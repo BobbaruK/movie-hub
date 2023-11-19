@@ -1,12 +1,11 @@
 import React from "react";
-import useFilterContext from "../../../Filter/useFilterContext";
 import useInfiniteMovies from "../../../hooks/useInfiniteMovies";
+import useFilteringMovies from "../../../stores/filterStore";
 import MovieCard from "../../MovieCard";
 import styles from "../MoviesGrid.module.scss";
 
 const LoadMore = () => {
-  const { filters } = useFilterContext();
-
+  const { language, genres, sorting } = useFilteringMovies();
   const {
     data,
     error,
@@ -16,9 +15,9 @@ const LoadMore = () => {
     hasNextPage,
   } = useInfiniteMovies({
     params: {
-      with_original_language: filters.language,
-      with_genres: filters.genres.join(","),
-      sort_by: filters.sorting,
+      with_original_language: language,
+      with_genres: genres.join(","),
+      sort_by: sorting,
     },
   });
 

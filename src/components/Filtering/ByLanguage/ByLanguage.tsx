@@ -1,11 +1,10 @@
-
-import useFilterContext from "../../../Filter/useFilterContext";
 import useLanguages from "../../../hooks/useLanguages";
+import useFilteringMovies from "../../../stores/filterStore";
 // import styles from "./ByLanguage.module.scss";
 
 const ByLanguage = () => {
-  const { filters, filterBy } = useFilterContext();
   const { data, error, isLoading } = useLanguages();
+  const { language, setLanguage } = useFilteringMovies();
 
   if (error) return <div className="alert alert-danger">{error.message}</div>;
 
@@ -16,18 +15,11 @@ const ByLanguage = () => {
     <>
       <div className={["h5", "mt-3", "sidebar__subtitle"].join(" ")}>
         Language
-        {filters.language && (
+        {language && (
           <button
             className="btn btn-primary btn-sm"
             onClick={() => {
-              filterBy({
-                type: "ByLanguage",
-                language: "",
-              });
-              filterBy({
-                type: "ChangePage",
-                page: 1,
-              });
+              setLanguage("");
             }}>
             Reset
           </button>
@@ -35,17 +27,8 @@ const ByLanguage = () => {
       </div>
       <select
         className="form-select"
-        onChange={(e) => {
-          filterBy({
-            type: "ByLanguage",
-            language: e.target.value,
-          });
-          filterBy({
-            type: "ChangePage",
-            page: 1,
-          });
-        }}
-        value={filters.language}>
+        onChange={(e) => setLanguage(e.target.value)}
+        value={language}>
         <option value="">All</option>
         {data?.map((language) => (
           <option key={language.iso_639_1} value={language.iso_639_1}>
