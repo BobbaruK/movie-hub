@@ -3,14 +3,14 @@ import { AxiosRequestConfig } from "axios";
 import { STALE_TIME } from "../constants";
 import movieService from "../services/movieService";
 
-const useMovies = (config?: AxiosRequestConfig) =>
+const useMovies = (config: AxiosRequestConfig) =>
   useInfiniteQuery({
-    queryKey: ["movies", config?.params],
+    queryKey: ["movies", config.params],
     queryFn: ({ pageParam }) =>
       movieService.getAll({
         ...config,
         params: {
-          ...config?.params,
+          ...config.params,
           page: pageParam,
         },
       }),

@@ -3,9 +3,9 @@ import { AxiosRequestConfig } from "axios";
 import { STALE_TIME } from "../constants";
 import movieService from "../services/movieService";
 
-const useMovies = (config?: AxiosRequestConfig) =>
+const useMovies = (config: AxiosRequestConfig) =>
   useQuery({
-    queryKey: ["movies", config?.params],
+    queryKey: ["movies", config.params],
     queryFn: () => movieService.getAll(config),
     staleTime: STALE_TIME,
     placeholderData: keepPreviousData,

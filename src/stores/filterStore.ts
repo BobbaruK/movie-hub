@@ -28,7 +28,7 @@ interface FilteringMoviesAction {
   resetLanguage: () => void;
   setGenres: (genreId: number) => void;
   setLanguage: (language: string) => void;
-  setSorting: (sort: string) => void;
+  setSorting: (sorting: string) => void;
 }
 
 const resetPage = {
@@ -63,7 +63,7 @@ const useFilteringMovies = create<FilteringMoviesState & FilteringMoviesAction>(
         return { ...resetPage, genres: genresSelected };
       }),
     setLanguage: (language) => set(() => ({ ...resetPage, language })),
-    setSorting: (sort) => set(() => ({ ...resetPage, sorting: sort })),
+    setSorting: (sorting) => set(() => ({ ...resetPage, sorting })),
   })
 );
 
