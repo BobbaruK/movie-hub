@@ -28,6 +28,11 @@ const Infinite = () => {
   if (isLoading)
     return <div className="alert alert-info">Loading movies...</div>;
 
+  if (data && data.pages[0].results.length === 0)
+    return (
+      <div className="alert alert-warning">No movies with these filters...</div>
+    );
+
   return (
     <>
       {data && (

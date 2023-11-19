@@ -1,4 +1,3 @@
-
 import useMovies from "../../../hooks/useMovies";
 import useFilteringMovies from "../../../stores/filterStore";
 import MovieCard from "../../MovieCard";
@@ -21,6 +20,9 @@ const WithPagination = () => {
 
   if (isLoading)
     return <div className="alert alert-info">Loading movies...</div>;
+
+  if (data && data.results.length === 0)
+    return <div className="alert alert-warning">No movies with these filters...</div>;
 
   return (
     <>
