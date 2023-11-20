@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import useConfig from "../../hooks/useConfig";
 import useGenres from "../../hooks/useGenres";
-import { Movie } from "../../services/movieService";
+import { Movie } from "../../services/moviesService";
 import useFilteringMovies from "../../stores/filterStore";
 import styles from "./MovieCard.module.scss";
 
@@ -83,7 +84,7 @@ const MovieCard = ({ movie }: Props) => {
         <h5
           className={["card-title", "mb-0", styles.scssecoCardTitle].join(" ")}
           title={movie.title}>
-          {movie.title}
+          <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
         </h5>
         <h6
           className={["card-title", styles.scssecoCardTitle].join(" ")}

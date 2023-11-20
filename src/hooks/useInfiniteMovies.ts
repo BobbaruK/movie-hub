@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { AxiosRequestConfig } from "axios";
 import { STALE_TIME } from "../constants";
-import movieService from "../services/movieService";
+import movieService from "../services/moviesService";
 
 const useMovies = (config: AxiosRequestConfig) =>
   useInfiniteQuery({
