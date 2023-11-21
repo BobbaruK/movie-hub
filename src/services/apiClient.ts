@@ -18,8 +18,8 @@ class APIClient<T> {
     return axiosInstance.get<T>(this.endpoint, config).then((res) => res.data);
   };
 
-  getMovie = (id: string) => {
-    return axiosInstance.get<T>(this.endpoint + id).then((res) => res.data);
+  getMovie = (idEndpoint: string) => {
+    return axiosInstance.get<T>(this.endpoint + idEndpoint).then((res) => res.data);
   };
 }
 

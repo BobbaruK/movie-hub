@@ -8,23 +8,18 @@ const Cast = () => {
   const params = useParams();
   const movieId = Number(params.id);
 
-  const {
-    data: credits,
-    error: creditsError,
-    isLoading: creditsLoading,
-  } = useCredits(movieId);
+  const { data, error, isLoading } = useCredits(movieId);
 
   let cast: TheCast[] = [];
 
-  if (credits) {
-    cast = [...credits.cast];
+  if (data) {
+    cast = [...data.cast];
     cast.length = 4;
   }
 
-  if (creditsError)
-    return <div className="alert alert-danger">{creditsError.message}</div>;
+  if (error) return <div className="alert alert-danger">{error.message}</div>;
 
-  if (creditsLoading)
+  if (isLoading)
     return <div className="alert alert-info">Loading credits...</div>;
 
   return (
