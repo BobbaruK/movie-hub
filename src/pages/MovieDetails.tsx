@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useMovie from "../hooks/useMovie";
 import React from "react";
 import useConfig from "../hooks/useConfig";
+import usePosterPath from "../hooks/usePosterPath";
 
 const MovieDetails = () => {
   const params = useParams();
@@ -10,30 +11,14 @@ const MovieDetails = () => {
 
   const { data: config } = useConfig();
 
-  const posterPath = (posterPath: string | null | undefined) => {
-    if (posterPath === null)
-      return "https://placehold.co/500x750?text=Poster+Missing";
-
-    if (config)
-      return (
-        config?.images.secure_base_url +
-        config?.images.poster_sizes[4] +
-        posterPath
-      );
-
-    return "https://placehold.co/500x750?text=Config+Error";
-  };
+  const posterPath = usePosterPath(config, movie?.poster_path);
 
   return (
     <section className="hero">
       <div className="container">
         <div className="row">
           <div className="col-12 col-sm-6 col-lg-4 col-xxl-3">
-            <img
-              src={posterPath(movie?.poster_path)}
-              className="card-img-top"
-              alt={movie?.title}
-            />
+            <img src={posterPath} className="card-img-top" alt={movie?.title} />
           </div>
           <div className="col-12 col-sm-6 col-lg-8 col-xxl-9">
             <h2>title: {movie?.title}</h2>

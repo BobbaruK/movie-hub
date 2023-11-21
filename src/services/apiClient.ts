@@ -19,7 +19,6 @@ class APIClient<T> {
   };
 
   getMovie = (id: number) => {
-    console.log(this.endpoint);
     return axiosInstance.get<T>(this.endpoint + id).then((res) => res.data);
   };
 }

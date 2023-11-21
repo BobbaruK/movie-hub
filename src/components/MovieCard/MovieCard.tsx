@@ -4,6 +4,7 @@ import useGenres from "../../hooks/useGenres";
 import { Movie } from "../../services/moviesService";
 import useFilteringMovies from "../../stores/filterStore";
 import styles from "./MovieCard.module.scss";
+import usePosterPath from "../../hooks/usePosterPath";
 
 interface Props {
   movie: Movie;
@@ -40,27 +41,25 @@ const MovieCard = ({ movie }: Props) => {
 
   const { data: config } = useConfig();
 
-  const posterPath = (posterPath: string | null) => {
-    if (posterPath === null)
-      return "https://placehold.co/500x750?text=Poster+Missing";
+  const posterPath = usePosterPath(config, movie.poster_path);
 
-    if (config)
-      return (
-        config?.images.secure_base_url +
-        config?.images.poster_sizes[4] +
-        posterPath
-      );
+  // const posterPath = (posterPath: string | null) => {
+  //   if (posterPath === null)
+  //     return "https://placehold.co/500x750?text=Poster+Missing";
 
-    return "https://placehold.co/500x750?text=Config+Error";
-  };
+  //   if (config)
+  //     return (
+  //       config?.images.secure_base_url +
+  //       config?.images.poster_sizes[4] +
+  //       posterPath
+  //     );
+
+  //   return "https://placehold.co/500x750?text=Config+Error";
+  // };
 
   return (
     <div className={["card", styles.scssecoCard].join(" ")}>
-      <img
-        src={posterPath(movie.poster_path)}
-        className="card-img-top"
-        alt={movie.title}
-      />
+      <img src={posterPath} className="card-img-top" alt={movie.title} />
       <span
         className={[
           "badge",
