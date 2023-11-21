@@ -21,6 +21,12 @@ class APIClient<T> {
   getMovie = (id: number) => {
     return axiosInstance.get<T>(this.endpoint + id).then((res) => res.data);
   };
+
+  getKeyworkds = (id: number) => {
+    return axiosInstance
+      .get<T>(this.endpoint + "/" + id + "/keywords")
+      .then((res) => res.data);
+  };
 }
 
 export default APIClient;

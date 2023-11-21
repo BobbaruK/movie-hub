@@ -6,11 +6,13 @@ import usePosterPath, { PosterSizes } from "../hooks/usePosterPath";
 import ReleaseDateUI from "../utils/releaseDateUI";
 import styles from "../assets/scss/movie/modules/MoviePage.module.scss";
 import useLanguages from "../hooks/api/useLanguages";
+import useKeywords from "../hooks/api/useKeywords";
 
 const Movie = () => {
   const params = useParams();
-  const { data: movie } = useMovie(Number(params.id));
-  const { data: config } = useConfig();
+  const movieId = Number(params.id);
+  const { data: movie } = useMovie(movieId); // TODO: handle error
+  const { data: config } = useConfig(); // TODO: handle error
   const posterPath = usePosterPath(config, movie?.poster_path);
   const backdropPath = usePosterPath(
     config,
@@ -19,13 +21,13 @@ const Movie = () => {
   );
   const { releaseDate, year } = ReleaseDateUI(movie);
 
-  const { data: languages } = useLanguages();
-
-  console.log(languages);
+  const { data: languages } = useLanguages(); // TODO: handle error
 
   const selectedLanguage = languages?.find(
     (lang) => lang.iso_639_1 === movie?.original_language
   );
+
+  const { data: keywords } = useKeywords(movieId); // TODO: handle error
 
   return (
     <>
@@ -91,6 +93,16 @@ const Movie = () => {
               <div className="revenue">
                 <div className="h4">Revenue</div>$
                 {movie?.revenue.toLocaleString()}
+              </div>
+              <div className="keywords">
+                <div className="h4">Keywords</div>
+                <div className={[styles.keywordsWrapper].join(' ')}>
+                  {keywords?.keywords.map((key) => (
+                    <span key={key.id} className="badge text-bg-secondary">
+                      {key.name}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="col-12 col-lg-9">content</div>
