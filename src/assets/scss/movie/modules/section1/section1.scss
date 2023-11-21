@@ -4,6 +4,7 @@ section.hero {
   background-size: cover;
   padding-block: 5rem;
   position: relative;
+  color: white;
 
   &::before {
     background-image: linear-gradient(

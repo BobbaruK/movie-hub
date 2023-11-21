@@ -1,0 +1,11 @@
+section.details {
+  padding-block: 3rem;
+  .sidebar {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+}

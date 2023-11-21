@@ -13,6 +13,8 @@ export const enum PosterSizes {
   "original",
 }
 
+// TODO: aici nu e bine decat pt poster_sizes
+
 const usePosterPath = (
   config: Configuration | null | undefined,
   posterPath: string | null | undefined,
