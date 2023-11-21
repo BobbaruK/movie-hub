@@ -5,7 +5,7 @@ import movieServices from "../../services/movieServices";
 const useMovie = (id: number) =>
   useQuery({
     queryKey: ["movie", id],
-    queryFn: () => movieServices.getMovie(id),
+    queryFn: () => movieServices.getMovie(`${id}`),
     staleTime: STALE_TIME,
     placeholderData: keepPreviousData,
   });

@@ -5,7 +5,7 @@ import keywordsService from "../../services/keywordsService";
 const useKeywords = (id: number) =>
   useQuery({
     queryKey: ["keywords", id],
-    queryFn: () => keywordsService.getKeyworkds(id),
+    queryFn: () => keywordsService.getMovie(`/${id}/keywords`),
     staleTime: STALE_TIME,
   });
 
