@@ -1,7 +1,4 @@
 import { Configuration } from "../services/configService";
-{
-  ["w92", "w154", "w185", "w342", "w500", "w780", "original"];
-}
 
 export const enum PosterSizes {
   "w92" = 0,
@@ -15,7 +12,7 @@ export const enum PosterSizes {
 
 // TODO: aici nu e bine decat pt poster_sizes
 
-const usePosterPath = (
+const PosterPath = (
   config: Configuration | null | undefined,
   posterPath: string | null | undefined,
   size: PosterSizes = PosterSizes.w500
@@ -33,4 +30,4 @@ const usePosterPath = (
   return "https://placehold.co/500x750?text=Config+Error";
 };
 
-export default usePosterPath;
+export default PosterPath;

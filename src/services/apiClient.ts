@@ -22,6 +22,7 @@ class APIClient<T> {
     return axiosInstance.get<T>(this.endpoint + id).then((res) => res.data);
   };
 
+  // TODO: try and make this reusable... study the api
   getKeyworkds = (id: number) => {
     return axiosInstance
       .get<T>(this.endpoint + "/" + id + "/keywords")

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import useConfig from "../../hooks/api/useConfig";
 import useGenres from "../../hooks/api/useGenres";
-import usePosterPath from "../../hooks/usePosterPath";
 import { Movie } from "../../services/moviesService";
 import useFilteringMovies from "../../stores/filterStore";
-import styles from "./MovieCard.module.scss";
+import PosterPath from "../../utils/posterPath";
 import ReleaseDateUI from "../../utils/releaseDateUI";
+import styles from "./MovieCard.module.scss";
 
 interface Props {
   movie: Movie;
@@ -18,7 +18,7 @@ const MovieCard = ({ movie }: Props) => {
   );
   const { genres } = useFilteringMovies();
   const { data: config } = useConfig();
-  const posterPath = usePosterPath(config, movie.poster_path);
+  const posterPath = PosterPath(config, movie.poster_path);
   const { releaseDate } = ReleaseDateUI(movie);
 
   return (

@@ -2,7 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useConfig from "../../../../hooks/api/useConfig";
 import useMovie from "../../../../hooks/api/useMovie";
-import usePosterPath, { PosterSizes } from "../../../../hooks/usePosterPath";
+import BackdropPath, { BackdropSizes } from "../../../../utils/backdropPath";
+import PosterPath from "../../../../utils/posterPath";
 import ReleaseDateUI from "../../../../utils/releaseDateUI";
 import styles from "./MovieSection1.module.scss";
 
@@ -11,15 +12,12 @@ const MovieSection1 = () => {
   const movieId = Number(params.id);
   const { data: movie } = useMovie(movieId);
   const { data: config } = useConfig();
-
-  // TODO: aici nu e bine decat pt poster_sizes
-  const posterPath = usePosterPath(config, movie?.poster_path);
-  const backdropPath = usePosterPath(
+  const posterPath = PosterPath(config, movie?.poster_path);
+  const backdropPath = BackdropPath(
     config,
     movie?.backdrop_path,
-    PosterSizes.original
+    BackdropSizes.original
   );
-
   const { releaseDate, year } = ReleaseDateUI(movie);
 
   return (
