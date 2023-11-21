@@ -1,1 +1,1 @@
-export { default as HomeSection2Sidebar } from "./HomeSection2Sidebar";
+export { default as HomeSection2Sidebar } from "./MovieSection2Sidebar";
