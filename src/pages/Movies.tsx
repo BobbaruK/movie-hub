@@ -2,7 +2,7 @@ import Filtering from "../components/Filtering";
 import MovieGrid from "../components/MovieGrid";
 import { Sorting } from "../components/Sorting";
 
-const Movies = () => {
+const MoviesPage = () => {
   return (
     <div className="container">
       <div className="row">
@@ -18,4 +18,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default MoviesPage;

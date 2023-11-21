@@ -25,7 +25,7 @@ const ReleaseDateUI = (movie: Movie | MovieResponse | undefined) => {
   const monthName = monthNames[month];
   const year = release_date.getFullYear();
 
-  const releaseDate = `${day}-${monthName}-${year}`;
+  const releaseDate = `${day}/${monthName}/${year}`;
 
   return { releaseDate, year };
 };

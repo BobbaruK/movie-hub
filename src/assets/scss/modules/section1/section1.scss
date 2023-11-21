@@ -1,0 +1,58 @@
+section.hero {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-block: 5rem;
+  position: relative;
+
+  &::before {
+    background-image: linear-gradient(
+      to right,
+      rgba(31.5, 10.5, 10.5, 1) calc((50vw - 170px) - 340px),
+      rgba(31.5, 10.5, 10.5, 0.84) 50%,
+      rgba(31.5, 10.5, 10.5, 0.84) 100%
+    );
+    content: "";
+    height: 100%;
+    inset: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+  }
+
+  > .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .poster {
+  }
+
+  .basicInfo {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      gap: 2rem;
+    }
+    > * {
+      margin: 0;
+    }
+  }
+
+  .title {
+  }
+
+  .facts {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+}
