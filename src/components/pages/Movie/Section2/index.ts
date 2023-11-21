@@ -1,1 +1,1 @@
-export { default as MovieSection2 } from "./Section2";
+export { default as MovieSection2 } from "./MovieSection2";
