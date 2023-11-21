@@ -1,61 +1,25 @@
 import { Link } from "react-router-dom";
 import useConfig from "../../hooks/api/useConfig";
 import useGenres from "../../hooks/api/useGenres";
+import usePosterPath from "../../hooks/usePosterPath";
 import { Movie } from "../../services/moviesService";
 import useFilteringMovies from "../../stores/filterStore";
-import usePosterPath from "../../utils/usePosterPath";
 import styles from "./MovieCard.module.scss";
+import ReleaseDateUI from "../../utils/releaseDateUI";
 
 interface Props {
   movie: Movie;
 }
 
 const MovieCard = ({ movie }: Props) => {
-  const release_date = new Date(movie.release_date);
-  const month = release_date.getMonth();
-  const monthNames = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  const releaseDateUI = `${
-    monthNames[month]
-  } ${release_date.getDay()}, ${release_date.getFullYear()}`;
-
   const { data } = useGenres();
-
   const filtered = data?.genres.filter((genre) =>
     movie.genre_ids.includes(genre.id)
   );
-
   const { genres } = useFilteringMovies();
-
   const { data: config } = useConfig();
-
   const posterPath = usePosterPath(config, movie.poster_path);
-
-  // const posterPath = (posterPath: string | null) => {
-  //   if (posterPath === null)
-  //     return "https://placehold.co/500x750?text=Poster+Missing";
-
-  //   if (config)
-  //     return (
-  //       config?.images.secure_base_url +
-  //       config?.images.poster_sizes[4] +
-  //       posterPath
-  //     );
-
-  //   return "https://placehold.co/500x750?text=Config+Error";
-  // };
+  const { releaseDate } = ReleaseDateUI(movie);
 
   return (
     <div className={["card", styles.scssecoCard].join(" ")}>
@@ -91,7 +55,7 @@ const MovieCard = ({ movie }: Props) => {
           <small>{movie.original_title}</small>
         </h6>
         <p className="card-text">
-          <small>{releaseDateUI}</small>
+          <small>{releaseDate}</small>
         </p>
         <p className="card-text">
           {movie.overview.substring(0, 200)}{" "}

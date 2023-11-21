@@ -14,7 +14,7 @@ interface ProductionCountry {
   name: string;
 }
 
-interface MovieResponse {
+export interface MovieResponse {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: null; // check collection to create a type

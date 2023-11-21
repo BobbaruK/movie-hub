@@ -2,16 +2,15 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useConfig from "../hooks/api/useConfig";
 import useMovie from "../hooks/api/useMovie";
-import usePosterPath from "../utils/usePosterPath";
+import usePosterPath from "../hooks/usePosterPath";
+import ReleaseDateUI from "../utils/releaseDateUI";
 
 const MovieDetails = () => {
   const params = useParams();
-
   const { data: movie } = useMovie(Number(params.id));
-
   const { data: config } = useConfig();
-
   const posterPath = usePosterPath(config, movie?.poster_path);
+  const { year } = ReleaseDateUI(movie);
 
   return (
     <section className="hero">
@@ -21,7 +20,9 @@ const MovieDetails = () => {
             <img src={posterPath} className="card-img-top" alt={movie?.title} />
           </div>
           <div className="col-12 col-sm-6 col-lg-8 col-xxl-9">
-            <h2>title: {movie?.title}</h2>
+            <h2>
+              {movie?.title} ({year})
+            </h2>
             <p>release date: {movie?.release_date}</p>
             <p>tagline: {movie?.tagline}</p>
             <p>overview: {movie?.overview}</p>
