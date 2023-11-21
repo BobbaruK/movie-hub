@@ -4,23 +4,25 @@ import useConfig from "../../../../hooks/api/useConfig";
 import useMovie from "../../../../hooks/api/useMovie";
 import usePosterPath, { PosterSizes } from "../../../../hooks/usePosterPath";
 import ReleaseDateUI from "../../../../utils/releaseDateUI";
-import styles from "./Section1.module.scss";
+import styles from "./MovieSection1.module.scss";
 
 const MovieSection1 = () => {
   const params = useParams();
   const movieId = Number(params.id);
-  const { data: movie } = useMovie(movieId); // TODO: handle error
-  const { data: config } = useConfig(); // TODO: handle error
+  const { data: movie } = useMovie(movieId);
+  const { data: config } = useConfig();
+
+  // TODO: aici nu e bine decat pt poster_sizes
   const posterPath = usePosterPath(config, movie?.poster_path);
   const backdropPath = usePosterPath(
     config,
     movie?.backdrop_path,
     PosterSizes.original
   );
+
   const { releaseDate, year } = ReleaseDateUI(movie);
 
   return (
-
     <section
       className={[styles.hero].join(" ")}
       style={{ backgroundImage: `url(${backdropPath})` }}>
@@ -29,7 +31,7 @@ const MovieSection1 = () => {
           <div className="col-12 col-sm-6 col-lg-4 col-xxl-3">
             <img
               src={posterPath}
-              className={["card-img-top", styles.poster].join(" ")}
+              className={["card-img-top", "rounded", styles.poster].join(" ")}
               alt={movie?.title}
             />
           </div>
