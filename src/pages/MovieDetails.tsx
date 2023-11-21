@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
-import useMovie from "../hooks/useMovie";
 import React from "react";
-import useConfig from "../hooks/useConfig";
-import usePosterPath from "../hooks/usePosterPath";
+import { useParams } from "react-router-dom";
+import useConfig from "../hooks/api/useConfig";
+import useMovie from "../hooks/api/useMovie";
+import usePosterPath from "../utils/usePosterPath";
 
 const MovieDetails = () => {
   const params = useParams();

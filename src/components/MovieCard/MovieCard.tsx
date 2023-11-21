@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import useConfig from "../../hooks/useConfig";
-import useGenres from "../../hooks/useGenres";
+import useConfig from "../../hooks/api/useConfig";
+import useGenres from "../../hooks/api/useGenres";
 import { Movie } from "../../services/moviesService";
 import useFilteringMovies from "../../stores/filterStore";
+import usePosterPath from "../../utils/usePosterPath";
 import styles from "./MovieCard.module.scss";
-import usePosterPath from "../../hooks/usePosterPath";
 
 interface Props {
   movie: Movie;

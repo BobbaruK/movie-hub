@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { STALE_TIME } from "../constants";
-import configService from "../services/configService";
+import { STALE_TIME } from "../../constants";
+import configService from "../../services/configService";
 
 const useConfig = () =>
   useQuery({

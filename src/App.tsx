@@ -1,11 +1,11 @@
 import "./App.scss";
-import { ThemeProvider } from "./ThemeProvider";
+import { ThemeProvider } from "./features/ThemeProvider";
 import Filtering from "./components/Filtering";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MovieGrid from "./components/MovieGrid";
 import { Sorting } from "./components/Sorting";
-import useConfig from "./hooks/useConfig";
+import useConfig from "./hooks/api/useConfig";
 
 // TODO: test env var for api key on netlify
 // TODO: make toast a component

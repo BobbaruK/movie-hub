@@ -1,4 +1,4 @@
-import useGenres from "../../../hooks/useGenres";
+import useGenres from "../../../hooks/api/useGenres";
 import useFilteringMovies from "../../../stores/filterStore";
 import styles from "./ByGenre.module.scss";
 

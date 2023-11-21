@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { STALE_TIME } from "../constants";
-import genreService from "../services/genreService";
+import { STALE_TIME } from "../../constants";
+import genreService from "../../services/genreService";
 
 const useGenres = () =>
   useQuery({

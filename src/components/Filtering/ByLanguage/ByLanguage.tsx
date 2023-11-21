@@ -1,4 +1,5 @@
-import useLanguages from "../../../hooks/useLanguages";
+
+import useLanguages from "../../../hooks/api/useLanguages";
 import useFilteringMovies from "../../../stores/filterStore";
 // import styles from "./ByLanguage.module.scss";
 

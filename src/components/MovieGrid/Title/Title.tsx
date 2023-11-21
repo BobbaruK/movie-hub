@@ -1,5 +1,27 @@
 import React from "react";
-import useMovieGridTitle from "../../../hooks/useMovieGridTitle";
+import useGenres from "../../../hooks/api/useGenres";
+import useLanguages from "../../../hooks/api/useLanguages";
+import { Genre } from "../../../services/genreService";
+import { Language } from "../../../services/languageService";
+import useFilteringMovies from "../../../stores/filterStore";
+
+const useMovieGridTitle = () => {
+  const { genres, language } = useFilteringMovies();
+  const { data: languages } = useLanguages();
+  const { data: genreResp } = useGenres();
+
+  const activeLanguage: Language | undefined = languages?.find(
+    (lang) => lang.iso_639_1 === language
+  );
+
+  const activeGenres: Genre[] = [];
+  genres.forEach((genre) => {
+    const activeGenre = genreResp?.genres.find((g) => g.id === genre);
+    if (activeGenre) activeGenres.push(activeGenre);
+  });
+
+  return { activeLanguage, activeGenres };
+};
 
 const Title = () => {
   const { activeGenres, activeLanguage } = useMovieGridTitle();

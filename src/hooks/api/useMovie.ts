@@ -1,6 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { STALE_TIME } from "../constants";
-import movieServices from "../services/movieServices";
+import { STALE_TIME } from "../../constants";
+import movieServices from "../../services/movieServices";
 
 const useMovie = (id: number) =>
   useQuery({

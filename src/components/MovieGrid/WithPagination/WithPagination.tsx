@@ -1,4 +1,4 @@
-import useMovies from "../../../hooks/useMovies";
+import useMovies from "../../../hooks/api/useMovies";
 import useFilteringMovies from "../../../stores/filterStore";
 import MovieCard from "../../MovieCard";
 import styles from "../MoviesGrid.module.scss";
@@ -22,7 +22,9 @@ const WithPagination = () => {
     return <div className="alert alert-info">Loading movies...</div>;
 
   if (data && data.results.length === 0)
-    return <div className="alert alert-warning">No movies with these filters...</div>;
+    return (
+      <div className="alert alert-warning">No movies with these filters...</div>
+    );
 
   return (
     <>

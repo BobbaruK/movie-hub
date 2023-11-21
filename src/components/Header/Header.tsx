@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { ThemeSwitcher } from "../../ThemeProvider";
+import { ThemeSwitcher } from "../../features/ThemeProvider";
 import styles from "./Header.module.scss";
 
 const Header = () => {
@@ -13,11 +13,6 @@ const Header = () => {
               Movie hub
             </Link>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink to="/" className="nav-link" aria-current="page">
-                  Home
-                </NavLink>
-              </li>
               <li className="nav-item">
                 <NavLink to="/movies" className="nav-link">
                   Movies

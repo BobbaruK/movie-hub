@@ -1,5 +1,4 @@
-
-import useMovies from "../../../../hooks/useMovies";
+import useMovies from "../../../../hooks/api/useMovies";
 import useFilteringMovies from "../../../../stores/filterStore";
 import styles from "./Pagination.module.scss";
 
@@ -12,7 +11,7 @@ const Pagination = () => {
     genres,
     sorting,
   } = useFilteringMovies();
-  
+
   const { data } = useMovies({
     params: {
       page: page,

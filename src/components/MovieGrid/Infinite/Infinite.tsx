@@ -1,9 +1,9 @@
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import useInfiniteMovies from "../../../hooks/useInfiniteMovies";
 import useFilteringMovies from "../../../stores/filterStore";
 import MovieCard from "../../MovieCard";
 import styles from "../MoviesGrid.module.scss";
+import useInfiniteMovies from "../../../hooks/api/useInfiniteMovies";
 
 const Infinite = () => {
   const { language, genres, sorting } = useFilteringMovies();
