@@ -2,11 +2,11 @@ import APIClient from "./apiClient";
 
 interface CreditsResponse {
   id: number;
-  cast: Cast[];
-  crew: Crew[];
+  cast: TheCast[];
+  crew: TheCrew[];
 }
 
-export interface Cast {
+export interface TheCast {
   adult: boolean;
   gender: number;
   id: number;
@@ -21,7 +21,7 @@ export interface Cast {
   order: number;
 }
 
-export interface Crew {
+export interface TheCrew {
   adult: boolean;
   gender: number;
   id: number;

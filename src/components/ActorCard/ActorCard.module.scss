@@ -1,0 +1,19 @@
+.actorCard {
+  width: 100%;
+
+  .actorImage {
+    object-fit: cover;
+  }
+
+  .actorBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+
+    > * {
+      margin: 0;
+    }
+  }
+}

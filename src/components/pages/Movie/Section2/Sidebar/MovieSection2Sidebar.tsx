@@ -19,7 +19,7 @@ const MovieSection2Sidebar = () => {
   } = useKeywords(movieId);
 
   return (
-    <div className={["col-12", "col-lg-3", styles.sidebar].join(" ")}>
+    <div className={["col-12", "col-lg-3 col-xxl-2", styles.sidebar].join(" ")}>
       {movie?.status && (
         <div className="status">
           <div className="h4">Status</div>

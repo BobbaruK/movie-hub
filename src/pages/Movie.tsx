@@ -29,6 +29,7 @@ const Movie = () => {
         </div>
       </div>
     );
+    
   return (
     <>
       <MovieSection1 />

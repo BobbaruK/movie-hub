@@ -1,0 +1,18 @@
+.cast {
+  // background-color: red;
+}
+.theCast {
+  --gap: 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--gap);
+
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
