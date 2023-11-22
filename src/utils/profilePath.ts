@@ -1,3 +1,4 @@
+import { CONFIG_ERROR_IMAGE } from "../constants";
 import { Configuration } from "../services/configService";
 
 export const enum ProfileSizes {
@@ -22,7 +23,7 @@ const ProfilePath = (
       posterPath
     );
 
-  return "https://placehold.co/500x750?text=Config+Error";
+  return CONFIG_ERROR_IMAGE;
 };
 
 export default ProfilePath;

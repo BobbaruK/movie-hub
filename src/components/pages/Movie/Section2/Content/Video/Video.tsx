@@ -23,7 +23,7 @@ const Video = () => {
 
   return (
     <div className={["mb-5", styles.videos].join(" ")}>
-      <h3>Video</h3>
+      <h3>Videos</h3>
       <div className={[styles.theVideos].join(" ")}>
         {theVideo.map((video) => (
           <div key={video.id} className={[styles.video].join(" ")}>
