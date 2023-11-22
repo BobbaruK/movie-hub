@@ -34,7 +34,9 @@ const Images = () => {
           <div key={backdrop.file_path} className={[styles.backdrop].join(" ")}>
             <img
               src={BackdropPath(config, backdrop.file_path, BackdropSizes.w780)}
-              className={["card-img-top", styles.backdropImage].join(" ")}
+              className={["rounded", "card-img-top", styles.backdropImage].join(
+                " "
+              )}
               alt="Backdrop"
               width={backdrop.width}
               height={backdrop.height}

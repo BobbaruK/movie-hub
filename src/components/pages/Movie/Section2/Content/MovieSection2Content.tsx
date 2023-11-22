@@ -16,6 +16,9 @@ const MovieSection2Content = () => {
       <Video />
       <Backdrops />
       <Posters />
+      {/*
+        // TODO: Recommendations 
+      */}
     </div>
   );
 };

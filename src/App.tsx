@@ -8,7 +8,6 @@ import { Sorting } from "./components/Sorting";
 import useConfig from "./hooks/api/useConfig";
 
 // TODO: test env var for api key on netlify
-// TODO: make toast a component
 function App() {
   const { error } = useConfig();
   return (

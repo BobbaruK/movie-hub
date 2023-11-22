@@ -32,7 +32,9 @@ const Posters = () => {
           <div key={poster.file_path} className={[styles.poster].join(" ")}>
             <img
               src={PosterPath(config, poster.file_path, PosterSizes.w342)}
-              className={["card-img-top", styles.posterImage].join(" ")}
+              className={["rounded", "card-img-top", styles.posterImage].join(
+                " "
+              )}
               alt="Backdrop"
               width={poster.width}
               height={poster.height}
