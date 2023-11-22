@@ -19,10 +19,10 @@ const Video = () => {
   if (error) return <div className="alert alert-danger">{error.message}</div>;
 
   if (isLoading)
-    return <div className="alert alert-info">Loading credits...</div>;
+    return <div className="alert alert-info">Loading videos...</div>;
 
   return (
-    <div className={[styles.videos].join(" ")}>
+    <div className={["mb-5", styles.videos].join(" ")}>
       <h3>Video</h3>
       <div className={[styles.theVideos].join(" ")}>
         {theVideo.map((video) => (
