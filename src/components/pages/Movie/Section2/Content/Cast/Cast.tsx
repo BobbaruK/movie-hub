@@ -14,7 +14,7 @@ const Cast = () => {
 
   if (data) {
     cast = [...data.cast];
-    cast.length = 4;
+    cast.length = 6;
   }
 
   if (error) return <div className="alert alert-danger">{error.message}</div>;
