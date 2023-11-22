@@ -1,6 +1,8 @@
 import styles from "./MovieSection2Content.module.scss";
 import { Cast } from "./Cast";
 import { Video } from "./Video";
+import { Backdrops } from "./Backdrops";
+import { Posters } from "./Posters";
 
 const MovieSection2Content = () => {
   return (
@@ -12,6 +14,8 @@ const MovieSection2Content = () => {
       <hr />
       <h2>Media</h2>
       <Video />
+      <Backdrops />
+      <Posters />
     </div>
   );
 };
