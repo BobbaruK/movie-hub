@@ -5,10 +5,11 @@ import { Poster } from "../../../../../../services/imagesService";
 import PosterPath, { PosterSizes } from "../../../../../../utils/posterPath";
 import styles from "./Posters.module.scss";
 
-const Posters = () => {
-  const params = useParams();
-  const movieId = Number(params.id);
+interface Props {
+  movieId: number;
+}
 
+const Posters = ({ movieId }: Props) => {
   const { data, error, isLoading } = useImages(movieId);
   const { data: config } = useConfig();
 

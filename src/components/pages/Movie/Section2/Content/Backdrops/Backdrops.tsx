@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import useConfig from "../../../../../../hooks/api/useConfig";
 import useImages from "../../../../../../hooks/api/useImages";
 import { Backdrop } from "../../../../../../services/imagesService";
@@ -7,10 +6,11 @@ import BackdropPath, {
 } from "../../../../../../utils/backdropPath";
 import styles from "./Backdrops.module.scss";
 
-const Images = () => {
-  const params = useParams();
-  const movieId = Number(params.id);
+interface Props {
+  movieId: number;
+}
 
+const Images = ({ movieId }: Props) => {
   const { data, error, isLoading } = useImages(movieId);
   const { data: config } = useConfig();
 

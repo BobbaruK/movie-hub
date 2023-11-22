@@ -1,21 +1,25 @@
-import styles from "./MovieSection2Content.module.scss";
-import { Cast } from "./Cast";
-import { Video } from "./Video";
+import { useParams } from "react-router-dom";
 import { Backdrops } from "./Backdrops";
+import { Cast } from "./Cast";
+import styles from "./MovieSection2Content.module.scss";
 import { Posters } from "./Posters";
+import { Video } from "./Video";
 
 const MovieSection2Content = () => {
+  const params = useParams();
+  const movieId = Number(params.id);
+
   return (
     <div
       className={["col-12", "col-lg-9 col-xxl-10", styles.contentWrapper].join(
         " "
       )}>
-      <Cast />
+      <Cast movieId={movieId} />
       <hr />
       <h2>Media</h2>
-      <Video />
-      <Backdrops />
-      <Posters />
+      <Video movieId={movieId} />
+      <Backdrops movieId={movieId} />
+      <Posters movieId={movieId} />
       {/*
         // TODO: Recommendations 
       */}

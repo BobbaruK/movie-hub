@@ -1,12 +1,13 @@
-import { useParams } from "react-router-dom";
 import useCredits from "../../../../../../hooks/api/useCredits";
 import { TheCast } from "../../../../../../services/creditsService";
 import { ActorCard } from "../../../../../ActorCard";
 import styles from "./Cast.module.scss";
 
-const Cast = () => {
-  const params = useParams();
-  const movieId = Number(params.id);
+interface Props {
+  movieId: number;
+}
+
+const Cast = ({ movieId }: Props) => {
 
   const { data, error, isLoading } = useCredits(movieId);
 

@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom";
 import useVideos from "../../../../../../hooks/api/useVideos";
 import { TheVideo } from "../../../../../../services/videoService";
 import styles from "./Video.module.scss";
 
-const Video = () => {
-  const params = useParams();
-  const movieId = Number(params.id);
+interface Props {
+  movieId: number;
+}
 
+const Video = ({ movieId }: Props) => {
   const { data, error, isLoading } = useVideos(movieId);
 
   let theVideo: TheVideo[] = [];
