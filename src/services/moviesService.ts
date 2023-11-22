@@ -1,6 +1,6 @@
 import APIClient from "./apiClient";
 
-interface MoviesResponse {
+export interface MoviesResponse {
   page: number;
   results: Movie[];
   total_pages: number;

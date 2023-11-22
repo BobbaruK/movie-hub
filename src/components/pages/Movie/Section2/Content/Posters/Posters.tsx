@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import useConfig from "../../../../../../hooks/api/useConfig";
 import useImages from "../../../../../../hooks/api/useImages";
 import { Poster } from "../../../../../../services/imagesService";

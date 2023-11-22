@@ -1,0 +1,29 @@
+.recommendations {
+  .theRecommendations {
+    --gap: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap);
+
+    @media (min-width: 576px) {
+      // grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: 992px) {
+      // grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .recommendation {
+    .moviePoster {
+      height: 150px;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}

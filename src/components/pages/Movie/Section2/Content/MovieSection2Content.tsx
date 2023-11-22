@@ -4,6 +4,7 @@ import { Cast } from "./Cast";
 import styles from "./MovieSection2Content.module.scss";
 import { Posters } from "./Posters";
 import { Video } from "./Video";
+import { Recommendations } from "./Recommendations";
 
 const MovieSection2Content = () => {
   const params = useParams();
@@ -20,6 +21,8 @@ const MovieSection2Content = () => {
       <Video movieId={movieId} />
       <Backdrops movieId={movieId} />
       <Posters movieId={movieId} />
+      <hr />
+      <Recommendations movieId={movieId} />
       {/*
         // TODO: Recommendations 
       */}
