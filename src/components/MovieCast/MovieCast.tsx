@@ -25,7 +25,7 @@ const MovieCast = ({ cast, error, isLoading }: Props) => {
   return (
     <div className={[styles.movieCast].join(" ")}>
       <h2>Cast</h2>
-      {cast?.length ? (
+      {output?.length ? (
         <>
           <div className={[styles.movieTheCast].join(" ")}>
             {output.map((actor) => (
@@ -37,7 +37,7 @@ const MovieCast = ({ cast, error, isLoading }: Props) => {
           </div>
         </>
       ) : (
-        ""
+        <p>No cast for this movie.</p>
       )}
     </div>
   );

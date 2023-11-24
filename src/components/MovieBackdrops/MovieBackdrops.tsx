@@ -55,7 +55,7 @@ const MovieBackdrops = ({ backdrop, error, isLoading, config }: Props) => {
           <div className="mt-4">View All Backdrops ({backdrop?.length})</div>
         </>
       ) : (
-        <p>No backdrops for this movie</p>
+        <p>No backdrops for this movie.</p>
       )}
     </div>
   );

@@ -43,7 +43,7 @@ const Video = ({ videos, error, isLoading }: Props) => {
           </div>
         </>
       ) : (
-        <p>No videos for this movie</p>
+        <p>No videos for this movie.</p>
       )}
     </div>
   );

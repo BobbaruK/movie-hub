@@ -66,7 +66,7 @@ const MovieRecommendations = ({
           </div>
         </>
       ) : (
-        <p>No cast for this movie. lmao</p>
+        <p>No recommendations for this movie.</p>
       )}
     </div>
   );

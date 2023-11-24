@@ -50,7 +50,7 @@ const MoviePosters = ({ posters, error, isLoading, config }: Props) => {
           <div className="mt-4">View All Posters ({posters?.length})</div>
         </>
       ) : (
-        <p>No posters for this movie</p>
+        <p>No posters for this movie.</p>
       )}
     </div>
   );
