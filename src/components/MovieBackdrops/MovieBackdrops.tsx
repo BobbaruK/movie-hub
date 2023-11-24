@@ -13,7 +13,7 @@ interface Props {
 const MovieBackdrops = ({ backdrop, error, isLoading, config }: Props) => {
   let output: Backdrop[] = [];
 
-  if (backdrop) {
+  if (backdrop && backdrop.length) {
     output = [...backdrop];
     output.length = 2;
   }
@@ -26,22 +26,37 @@ const MovieBackdrops = ({ backdrop, error, isLoading, config }: Props) => {
   return (
     <div className={["mb-5", styles.movieBackdrops].join(" ")}>
       <h3>Backdrops</h3>
-      <div className={[styles.movieTheBackdrops].join(" ")}>
-        {output.map((backdrop) => (
-          <div key={backdrop.file_path} className={[styles.movieBackdrop].join(" ")}>
-            <img
-              src={BackdropPath(config, backdrop.file_path, BackdropSizes.w780)}
-              className={["rounded", "card-img-top", styles.movieBackdropImage].join(
-                " "
-              )}
-              alt="Backdrop"
-              width={backdrop.width}
-              height={backdrop.height}
-            />
+
+      {output.length ? (
+        <>
+          <div className={[styles.movieTheBackdrops].join(" ")}>
+            {output.map((backdrop) => (
+              <div
+                key={backdrop.file_path}
+                className={[styles.movieBackdrop].join(" ")}>
+                <img
+                  src={BackdropPath(
+                    config,
+                    backdrop.file_path,
+                    BackdropSizes.w780
+                  )}
+                  className={[
+                    "rounded",
+                    "card-img-top",
+                    styles.movieBackdropImage,
+                  ].join(" ")}
+                  alt="Backdrop"
+                  width={backdrop.width}
+                  height={backdrop.height}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="mt-4">View All Backdrops ({backdrop?.length})</div>
+          <div className="mt-4">View All Backdrops ({backdrop?.length})</div>
+        </>
+      ) : (
+        <p>No backdrops for this movie</p>
+      )}
     </div>
   );
 };

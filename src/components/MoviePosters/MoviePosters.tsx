@@ -13,7 +13,7 @@ interface Props {
 const MoviePosters = ({ posters, error, isLoading, config }: Props) => {
   let output: Poster[] = [];
 
-  if (posters) {
+  if (posters && posters.length) {
     output = [...posters];
     output.length = 4;
   }
@@ -26,26 +26,32 @@ const MoviePosters = ({ posters, error, isLoading, config }: Props) => {
   return (
     <div className={["mb-5", styles.moviePosters].join(" ")}>
       <h3>Posters</h3>
-      <div className={[styles.movieThePosters].join(" ")}>
-        {output.map((poster) => (
-          <div
-            key={poster.file_path}
-            className={[styles.moviePoster].join(" ")}>
-            <img
-              src={PosterPath(config, poster.file_path, PosterSizes.w342)}
-              className={[
-                "rounded",
-                "card-img-top",
-                styles.moviePosterImage,
-              ].join(" ")}
-              alt="Backdrop"
-              width={poster.width}
-              height={poster.height}
-            />
+      {output.length ? (
+        <>
+          <div className={[styles.movieThePosters].join(" ")}>
+            {output.map((poster) => (
+              <div
+                key={poster.file_path}
+                className={[styles.moviePoster].join(" ")}>
+                <img
+                  src={PosterPath(config, poster.file_path, PosterSizes.w342)}
+                  className={[
+                    "rounded",
+                    "card-img-top",
+                    styles.moviePosterImage,
+                  ].join(" ")}
+                  alt="Backdrop"
+                  width={poster.width}
+                  height={poster.height}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="mt-4">View All Posters ({posters?.length})</div>
+          <div className="mt-4">View All Posters ({posters?.length})</div>
+        </>
+      ) : (
+        <p>No posters for this movie</p>
+      )}
     </div>
   );
 };

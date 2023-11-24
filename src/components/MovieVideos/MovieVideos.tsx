@@ -10,7 +10,7 @@ interface Props {
 const Video = ({ videos, error, isLoading }: Props) => {
   let output: TheVideo[] = [];
 
-  if (videos) {
+  if (videos && videos.length) {
     output = [...videos];
     output.length = 2;
   }
@@ -23,19 +23,25 @@ const Video = ({ videos, error, isLoading }: Props) => {
   return (
     <div className={["mb-5", styles.videos].join(" ")}>
       <h3>Videos</h3>
-      <div className={[styles.theVideos].join(" ")}>
-        {output.map((video) => (
-          <div key={video.id} className={[styles.video].join(" ")}>
-            <iframe
-              src={`https://www.youtube.com/embed/${video.key}?autoplay=1&origin=https%3A%2F%2Fwww.themoviedb.org&hl=en&modestbranding=1&fs=1&autohide=1`}
-              className={["rounded", styles.ytIframe].join(" ")}
-              title="YouTube video player"
-              // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            ></iframe>
+      {output.length ? (
+        <>
+          <div className={[styles.theVideos].join(" ")}>
+            {output.map((video) => (
+              <div key={video.id} className={[styles.video].join(" ")}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.key}?autoplay=1&origin=https%3A%2F%2Fwww.themoviedb.org&hl=en&modestbranding=1&fs=1&autohide=1`}
+                  className={["rounded", styles.ytIframe].join(" ")}
+                  title="YouTube video player"
+                  // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                ></iframe>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="mt-4">View All Videos ({videos?.length})</div>
+          <div className="mt-4">View All Videos ({videos?.length})</div>
+        </>
+      ) : (
+        <p>No videos for this movie</p>
+      )}
     </div>
   );
 };

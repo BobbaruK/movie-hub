@@ -9,9 +9,9 @@ section.hero {
   &::before {
     background-image: linear-gradient(
       to right,
-      rgba(var(--bs-tertiary-bg-rgb), 0.8) calc((50vw - 170px) - 340px),
-      rgba(var(--bs-secondary-bg-rgb), 0.84) 50%,
-      rgba(var(--bs-tertiary-color-rgb), 0.6) 100%
+      rgba(var(--bs-tertiary-bg-rgb), 0.7) calc((50vw - 170px) - 340px),
+      rgba(var(--bs-secondary-bg-rgb), 0.8) 65%,
+      rgba(var(--bs-tertiary-bg-rgb), 0.3) 100%
     );
     content: "";
     height: 100%;

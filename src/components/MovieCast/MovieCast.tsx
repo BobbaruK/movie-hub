@@ -12,7 +12,7 @@ interface Props {
 const MovieCast = ({ cast, error, isLoading }: Props) => {
   let output: TheCast[] = [];
 
-  if (cast) {
+  if (cast && cast.length) {
     output = [...cast];
     output.length = 6;
   }
@@ -25,14 +25,20 @@ const MovieCast = ({ cast, error, isLoading }: Props) => {
   return (
     <div className={[styles.movieCast].join(" ")}>
       <h2>Cast</h2>
-      <div className={[styles.movieTheCast].join(" ")}>
-        {output.map((actor) => (
-          <ActorCard key={actor.id} actor={actor} />
-        ))}
-      </div>
-      <div className="mt-4">
-        <Link to="cast">Full Cast & Crew</Link>
-      </div>
+      {cast?.length ? (
+        <>
+          <div className={[styles.movieTheCast].join(" ")}>
+            {output.map((actor) => (
+              <ActorCard key={actor.id} actor={actor} />
+            ))}
+          </div>
+          <div className="mt-4">
+            <Link to="cast">Full Cast & Crew</Link>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

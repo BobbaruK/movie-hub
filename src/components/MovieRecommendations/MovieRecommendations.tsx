@@ -17,11 +17,9 @@ const MovieRecommendations = ({
   isLoading,
   config,
 }: Props) => {
-  console.log(recommendations);
-
   let output: Movie[] = [];
 
-  if (recommendations) {
+  if (recommendations && recommendations.results.length) {
     output = [...recommendations.results];
     output.length = 4;
   }
@@ -34,31 +32,42 @@ const MovieRecommendations = ({
   return (
     <div className={["mb-5", styles.movieRecommendations].join(" ")}>
       <h3>Recommendations</h3>
-      <div className={[styles.movieTheRecommendations].join(" ")}>
-        {output.map((movie) => (
-          <div
-            key={movie.id}
-            className={[styles.movieRecommendation].join(" ")}>
-            <Link to={`/movie/${movie.id}`}>
-              <img
-                src={PosterPath(config, movie.poster_path, PosterSizes.w342)}
-                className={[
-                  "rounded",
-                  "card-img-top",
-                  styles.movieRecommendationPoster,
-                ].join(" ")}
-                alt={movie.title}
-                width="257"
-                height="200"
-              />
-              <p>{movie.title}</p>
-            </Link>
+
+      {recommendations?.results.length ? (
+        <>
+          <div className={[styles.movieTheRecommendations].join(" ")}>
+            {output.map((movie) => (
+              <div
+                key={movie.id}
+                className={[styles.movieRecommendation].join(" ")}>
+                <Link to={`/movie/${movie.id}`}>
+                  <img
+                    src={PosterPath(
+                      config,
+                      movie.poster_path,
+                      PosterSizes.w342
+                    )}
+                    className={[
+                      "rounded",
+                      "card-img-top",
+                      styles.movieRecommendationPoster,
+                    ].join(" ")}
+                    alt={movie.title}
+                    width="257"
+                    height="200"
+                  />
+                  <p>{movie.title}</p>
+                </Link>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="mt-4">
-        View All Recommendations ({recommendations?.total_results})
-      </div>
+          <div className="mt-4">
+            View All Recommendations ({recommendations?.total_results})
+          </div>
+        </>
+      ) : (
+        <p>No cast for this movie. lmao</p>
+      )}
     </div>
   );
 };
