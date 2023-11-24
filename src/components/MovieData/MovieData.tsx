@@ -4,6 +4,7 @@ import useMovie from "../../hooks/api/useMovie";
 import PosterPath, { PosterSizes } from "../../utils/posterPath";
 import ReleaseDateUI from "../../utils/releaseDateUI";
 import styles from "./MovieData.module.scss";
+import { FaArrowLeft } from "react-icons/fa";
 
 const MovieData = () => {
   const params = useParams();
@@ -56,16 +57,7 @@ const MovieData = () => {
             </h1>
             <div className={[styles.movieData__goBack].join(" ")}>
               <Link to=".." relative="path">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24">
-                  <path
-                    fill="currentColor"
-                    d="m10 18l-6-6l6-6l1.4 1.45L7.85 11H20v2H7.85l3.55 3.55L10 18Z"
-                  />
-                </svg>
+                <FaArrowLeft />
                 Back to main
               </Link>
             </div>

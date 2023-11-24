@@ -34,6 +34,6 @@ hr {
   }
 
   .active {
-    color: #000;
+    color: var(--bs-body-bg);
   }
 }
