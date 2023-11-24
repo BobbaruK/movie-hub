@@ -6,6 +6,12 @@ import MoviesPage from "./pages/Movies";
 import MovieLayout from "./layouts/MovieLayot";
 import { Cast } from "./pages/Movie/Cast";
 import { Videos } from "./pages/Movie/Videos";
+import { Trailers } from "./pages/Movie/Videos/Trailers";
+import { Teasers } from "./pages/Movie/Videos/Teasers";
+import { Clips } from "./pages/Movie/Videos/Clips";
+import { BehindTheScenes } from "./pages/Movie/Videos/BehindTheScenes";
+import { Bloopers } from "./pages/Movie/Videos/Bloopers";
+import { Featurettes } from "./pages/Movie/Videos/Featurettes";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +41,36 @@ const router = createBrowserRouter([
           {
             path: "videos",
             element: <Videos />,
+            children: [
+              {
+                index: true,
+                element: <Trailers />,
+              },
+              {
+                path: "trailers",
+                element: <Trailers />,
+              },
+              {
+                path: "teasers",
+                element: <Teasers />,
+              },
+              {
+                path: "clips",
+                element: <Clips />,
+              },
+              {
+                path: "behind-the-scenes",
+                element: <BehindTheScenes />,
+              },
+              {
+                path: "bloopers",
+                element: <Bloopers />,
+              },
+              {
+                path: "featurettes",
+                element: <Featurettes />,
+              },
+            ],
           },
         ],
       },

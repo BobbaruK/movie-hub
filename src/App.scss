@@ -27,3 +27,13 @@
 hr {
   margin: 3rem 0;
 }
+
+.activeListGroupItem {
+  &:has(.active) {
+    background: var(--bs-secondary-color);
+  }
+
+  .active {
+    color: #000;
+  }
+}
