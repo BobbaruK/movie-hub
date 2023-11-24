@@ -1,5 +1,5 @@
-.backdrops {
-  .theBackdrops {
+.movieBackdrops {
+  .movieTheBackdrops {
     --gap: 1rem;
 
     display: grid;
@@ -15,8 +15,8 @@
     }
   }
 
-  .backdrop {
-    .backdropImage {
+  .movieBackdrop {
+    .movieBackdropImage {
       height: auto;
       object-fit: cover;
       width: 100%;
