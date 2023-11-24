@@ -1,5 +1,5 @@
-.posters {
-  .thePosters {
+.moviePosters {
+  .movieThePosters {
     --gap: 1rem;
 
     display: grid;
@@ -19,8 +19,8 @@
     }
   }
 
-  .poster {
-    .posterImage {
+  .moviePoster {
+    .moviePosterImage {
       height: 100%;
       object-fit: cover;
       width: 100%;

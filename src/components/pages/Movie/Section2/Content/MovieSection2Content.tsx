@@ -5,9 +5,9 @@ import useImages from "../../../../../hooks/api/useImages";
 import useVideos from "../../../../../hooks/api/useVideos";
 import { MovieBackdrops } from "../../../../MovieBackdrops";
 import { MovieCast } from "../../../../MovieCast";
+import { MoviePosters } from "../../../../MoviePosters";
 import { MovieVideos } from "../../../../MovieVideos";
 import styles from "./MovieSection2Content.module.scss";
-import { Posters } from "./Posters";
 import { Recommendations } from "./Recommendations";
 
 const MovieSection2Content = () => {
@@ -57,7 +57,12 @@ const MovieSection2Content = () => {
         isLoading={imagesIsLoading}
         config={config}
       />
-      <Posters movieId={movieId} />
+      <MoviePosters
+        posters={imagesResponse?.posters}
+        error={imagesError}
+        isLoading={imagesIsLoading}
+        config={config}
+      />
       <hr />
       <Recommendations movieId={movieId} />
     </div>
