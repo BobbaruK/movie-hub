@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { TheVideo } from "../../services/videoService";
 import styles from "./MovieVideos.module.scss";
 
@@ -37,7 +38,9 @@ const Video = ({ videos, error, isLoading }: Props) => {
               </div>
             ))}
           </div>
-          <div className="mt-4">View All Videos ({videos?.length})</div>
+          <div className="mt-4">
+            <Link to="videos">All Videos ({videos?.length})</Link>
+          </div>
         </>
       ) : (
         <p>No videos for this movie</p>

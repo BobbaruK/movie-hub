@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import Home from "./pages/Home";
-import Movie from "./pages/Movie";
+import { Movie } from "./pages/Movie";
 import MoviesPage from "./pages/Movies";
-import Cast from "./pages/Cast";
 import MovieLayout from "./layouts/MovieLayot";
+import { Cast } from "./pages/Movie/Cast";
+import { Videos } from "./pages/Movie/Videos";
 
 const router = createBrowserRouter([
   {
@@ -31,12 +32,12 @@ const router = createBrowserRouter([
             path: "cast",
             element: <Cast />,
           },
+          {
+            path: "videos",
+            element: <Videos />,
+          },
         ],
       },
-      // {
-      //   path: "/movie/:id/cast",
-      //   element: <Cast />,
-      // },
     ],
   },
 ]);

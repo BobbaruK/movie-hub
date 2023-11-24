@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { MovieSection1 } from "../components/pages/Movie/Section1";
-import { MovieSection2 } from "../components/pages/Movie/Section2";
-import useMovie from "../hooks/api/useMovie";
+import { MovieSection1 } from "../../components/pages/Movie/Section1";
+import { MovieSection2 } from "../../components/pages/Movie/Section2";
+import useMovie from "../../hooks/api/useMovie";
 
 const Movie = () => {
   const params = useParams();

@@ -1,11 +1,11 @@
 import { Link, useParams } from "react-router-dom";
-import useConfig from "../../../../hooks/api/useConfig";
-import useMovie from "../../../../hooks/api/useMovie";
-import PosterPath, { PosterSizes } from "../../../../utils/posterPath";
-import ReleaseDateUI from "../../../../utils/releaseDateUI";
-import styles from "./MovieCastSection1.module.scss";
+import useConfig from "../../hooks/api/useConfig";
+import useMovie from "../../hooks/api/useMovie";
+import PosterPath, { PosterSizes } from "../../utils/posterPath";
+import ReleaseDateUI from "../../utils/releaseDateUI";
+import styles from "./MovieData.module.scss";
 
-const MovieCastSection1 = () => {
+const MovieData = () => {
   const params = useParams();
   const movieId = Number(params.id);
 
@@ -14,20 +14,6 @@ const MovieCastSection1 = () => {
 
   const { data: config } = useConfig();
   const posterPath = PosterPath(config, movie?.poster_path, PosterSizes.w92);
-
-  // const {
-  //   data: creditsResponse,
-  //   error: castError,
-  //   isLoading: castIsLoading,
-  // } = useCredits(movieId);
-
-  // console.log(
-  //   creditsResponse?.crew.sort((a, b) => {
-  //     if (a.known_for_department < b.known_for_department) return -1;
-  //     if (a.known_for_department > b.known_for_department) return 1;
-  //     return 0;
-  //   })
-  // );
 
   if (error)
     return (
@@ -90,4 +76,4 @@ const MovieCastSection1 = () => {
   );
 };
 
-export default MovieCastSection1;
+export default MovieData;
