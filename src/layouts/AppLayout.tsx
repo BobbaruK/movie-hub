@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import "../App.scss";
 import { ThemeProvider } from "../features/ThemeProvider";
 import Footer from "../components/Footer";
@@ -40,6 +40,8 @@ const AppLayout = () => {
           <div className="toast-body">{error?.message}</div>
         </div>
       </div>
+
+      <ScrollRestoration />
     </ThemeProvider>
   );
 };
