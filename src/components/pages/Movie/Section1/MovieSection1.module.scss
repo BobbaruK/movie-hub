@@ -4,14 +4,14 @@ section.hero {
   background-size: cover;
   padding-block: 5rem;
   position: relative;
-  color: white;
+  // color: white;
 
   &::before {
     background-image: linear-gradient(
       to right,
-      rgba(31.5, 10.5, 10.5, 1) calc((50vw - 170px) - 340px),
-      rgba(31.5, 10.5, 10.5, 0.84) 50%,
-      rgba(31.5, 10.5, 10.5, 0.84) 100%
+      rgba(var(--bs-tertiary-bg-rgb), 0.8) calc((50vw - 170px) - 340px),
+      rgba(var(--bs-secondary-bg-rgb), 0.84) 50%,
+      rgba(var(--bs-tertiary-color-rgb), 0.6) 100%
     );
     content: "";
     height: 100%;

@@ -1,0 +1,49 @@
+.movieData {
+  background-color: var(--bs-secondary-bg);
+  padding-block: 2rem;
+
+  a {
+    color: var(--bs-heading-color);
+    text-decoration: none;
+  }
+
+  &__Inner {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+  }
+  &__PosterLink {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: grid;
+    place-items: center;
+
+    img {
+      border-radius: var(--bs-border-radius);
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__Title,
+  &__goBack,
+  &__goBack a {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin: 0;
+  }
+  &__Title {
+    align-content: flex-end;
+  }
+  &__goBack {
+    align-content: flex-start;
+    a {
+      gap: 0.5rem;
+    }
+  }
+}

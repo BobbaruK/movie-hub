@@ -10,8 +10,10 @@ import styles from "./MovieSection1.module.scss";
 const MovieSection1 = () => {
   const params = useParams();
   const movieId = Number(params.id);
+
   const { data: movie } = useMovie(movieId);
   const { data: config } = useConfig();
+
   const posterPath = PosterPath(config, movie?.poster_path);
   const backdropPath = BackdropPath(
     config,
@@ -58,7 +60,9 @@ const MovieSection1 = () => {
               &bull;
               <div className="runtime">{movie?.runtime} minutes</div>
             </div>
-            <p className="lead">{movie?.tagline}</p>
+            <p className="lead">
+              <em>{movie?.tagline}</em>
+            </p>
             <p>{movie?.overview}</p>
           </div>
         </div>

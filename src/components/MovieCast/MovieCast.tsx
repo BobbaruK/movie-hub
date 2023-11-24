@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { TheCast } from "../../services/creditsService";
 import { ActorCard } from "../ActorCard";
 import styles from "./MovieCast.module.scss";
@@ -29,7 +30,9 @@ const MovieCast = ({ cast, error, isLoading }: Props) => {
           <ActorCard key={actor.id} actor={actor} />
         ))}
       </div>
-      <div className="mt-4">Full Cast & Crew</div>
+      <div className="mt-4">
+        <Link to="cast">Full Cast & Crew</Link>
+      </div>
     </div>
   );
 };
