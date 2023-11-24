@@ -9,11 +9,11 @@ interface Props {
 }
 
 const MovieCast = ({ cast, error, isLoading }: Props) => {
-  let outputCast: TheCast[] = [];
+  let output: TheCast[] = [];
 
   if (cast) {
-    outputCast = [...cast];
-    outputCast.length = 6;
+    output = [...cast];
+    output.length = 6;
   }
 
   if (error) return <div className="alert alert-danger">{error.message}</div>;
@@ -25,7 +25,9 @@ const MovieCast = ({ cast, error, isLoading }: Props) => {
     <div className={[styles.movieCast].join(" ")}>
       <h2>Cast</h2>
       <div className={[styles.movieTheCast].join(" ")}>
-        {outputCast.map((actor) => <ActorCard key={actor.id} actor={actor} />)}
+        {output.map((actor) => (
+          <ActorCard key={actor.id} actor={actor} />
+        ))}
       </div>
       <div className="mt-4">Full Cast & Crew</div>
     </div>

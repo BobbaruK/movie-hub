@@ -1,21 +1,28 @@
 import { useParams } from "react-router-dom";
 import useCredits from "../../../../../hooks/api/useCredits";
+import useVideos from "../../../../../hooks/api/useVideos";
 import { MovieCast } from "../../../../MovieCast";
+import { MovieVideos } from "../../../../MovieVideos";
 import { Backdrops } from "./Backdrops";
 import styles from "./MovieSection2Content.module.scss";
 import { Posters } from "./Posters";
 import { Recommendations } from "./Recommendations";
-import { Video } from "./Video";
 
 const MovieSection2Content = () => {
   const params = useParams();
   const movieId = Number(params.id);
 
   const {
-    data,
+    data: creditsResp,
     error: castError,
     isLoading: castIsLoading,
   } = useCredits(movieId);
+
+  const {
+    data: videosResp,
+    error: videosError,
+    isLoading: videosIsLoading,
+  } = useVideos(movieId);
 
   return (
     <div
@@ -23,13 +30,17 @@ const MovieSection2Content = () => {
         " "
       )}>
       <MovieCast
-        cast={data?.cast}
+        cast={creditsResp?.cast}
         error={castError}
         isLoading={castIsLoading}
       />
       <hr />
       <h2>Media</h2>
-      <Video movieId={movieId} />
+      <MovieVideos
+        videos={videosResp?.results}
+        error={videosError}
+        isLoading={videosIsLoading}
+      />
       <Backdrops movieId={movieId} />
       <Posters movieId={movieId} />
       <hr />

@@ -1,19 +1,18 @@
-import useVideos from "../../../../../../hooks/api/useVideos";
-import { TheVideo } from "../../../../../../services/videoService";
-import styles from "./Video.module.scss";
+import { TheVideo } from "../../services/videoService";
+import styles from "./MovieVideos.module.scss";
 
 interface Props {
-  movieId: number;
+  videos: TheVideo[] | undefined;
+  error: Error | null;
+  isLoading: boolean;
 }
 
-const Video = ({ movieId }: Props) => {
-  const { data, error, isLoading } = useVideos(movieId);
+const Video = ({ videos, error, isLoading }: Props) => {
+  let output: TheVideo[] = [];
 
-  let theVideo: TheVideo[] = [];
-
-  if (data) {
-    theVideo = [...data.results];
-    theVideo.length = 2;
+  if (videos) {
+    output = [...videos];
+    output.length = 2;
   }
 
   if (error) return <div className="alert alert-danger">{error.message}</div>;
@@ -25,7 +24,7 @@ const Video = ({ movieId }: Props) => {
     <div className={["mb-5", styles.videos].join(" ")}>
       <h3>Videos</h3>
       <div className={[styles.theVideos].join(" ")}>
-        {theVideo.map((video) => (
+        {output.map((video) => (
           <div key={video.id} className={[styles.video].join(" ")}>
             <iframe
               src={`https://www.youtube.com/embed/${video.key}?autoplay=1&origin=https%3A%2F%2Fwww.themoviedb.org&hl=en&modestbranding=1&fs=1&autohide=1`}
@@ -36,7 +35,7 @@ const Video = ({ movieId }: Props) => {
           </div>
         ))}
       </div>
-      <div className="mt-4">View All Videos ({data?.results.length})</div>
+      <div className="mt-4">View All Videos ({videos?.length})</div>
     </div>
   );
 };
