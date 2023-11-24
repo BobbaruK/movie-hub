@@ -1,5 +1,5 @@
-.recommendations {
-  .theRecommendations {
+.movieRecommendations {
+  .movieTheRecommendations {
     --gap: 1rem;
 
     display: grid;
@@ -19,8 +19,8 @@
     }
   }
 
-  .recommendation {
-    .moviePoster {
+  .movieRecommendation {
+    .movieRecommendationPoster {
       height: 150px;
       object-fit: cover;
       width: 100%;

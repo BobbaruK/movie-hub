@@ -2,13 +2,14 @@ import { useParams } from "react-router-dom";
 import useConfig from "../../../../../hooks/api/useConfig";
 import useCredits from "../../../../../hooks/api/useCredits";
 import useImages from "../../../../../hooks/api/useImages";
+import useMovieRecommendations from "../../../../../hooks/api/useMovieRecommendations";
 import useVideos from "../../../../../hooks/api/useVideos";
 import { MovieBackdrops } from "../../../../MovieBackdrops";
 import { MovieCast } from "../../../../MovieCast";
 import { MoviePosters } from "../../../../MoviePosters";
+import { MovieRecommendations } from "../../../../MovieRecommendations";
 import { MovieVideos } from "../../../../MovieVideos";
 import styles from "./MovieSection2Content.module.scss";
-import { Recommendations } from "./Recommendations";
 
 const MovieSection2Content = () => {
   const params = useParams();
@@ -33,6 +34,12 @@ const MovieSection2Content = () => {
     error: imagesError,
     isLoading: imagesIsLoading,
   } = useImages(movieId);
+
+  const {
+    data: recommendationResponse,
+    error: recommendationError,
+    isLoading: recommendationIsLoading,
+  } = useMovieRecommendations(movieId);
 
   return (
     <div
@@ -64,7 +71,12 @@ const MovieSection2Content = () => {
         config={config}
       />
       <hr />
-      <Recommendations movieId={movieId} />
+      <MovieRecommendations
+        recommendations={recommendationResponse}
+        error={recommendationError}
+        isLoading={recommendationIsLoading}
+        config={config}
+      />
     </div>
   );
 };
