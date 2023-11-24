@@ -39,7 +39,7 @@ const Video = ({ videos, error, isLoading }: Props) => {
             ))}
           </div>
           <div className="mt-4">
-            <Link to="videos">All Videos ({videos?.length})</Link>
+            <Link to="videos/trailers">All Videos ({videos?.length})</Link>
           </div>
         </>
       ) : (

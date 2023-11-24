@@ -1,0 +1,19 @@
+.videos {
+  padding-block: 2rem;
+}
+
+.listGroupItem {
+  padding: 0;
+}
+.linkItem {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: var(--bs-list-group-item-padding-y)
+    var(--bs-list-group-item-padding-x);
+
+  color: var(--bs-body-color);
+  text-decoration: none;
+}
