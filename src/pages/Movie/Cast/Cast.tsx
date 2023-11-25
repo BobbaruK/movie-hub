@@ -1,5 +1,5 @@
 import { MovieData } from "../../../components/MovieData";
-import { MovieCastSection1 } from "../../../components/pages/MovieCast/Section1";
+import { MovieCastSection1 } from "../../../components/pages/Movie/Cast/Section1";
 
 const Cast = () => {
   return (

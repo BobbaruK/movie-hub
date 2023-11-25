@@ -1,5 +1,5 @@
 import { MovieData } from "../../../components/MovieData";
-import { MovieVideosSection1 } from "../../../components/pages/MovieVideos/Section1";
+import { MovieVideosSection1 } from "../../../components/pages/Movie/Videos/Section1";
 
 const Videos = () => {
   return (

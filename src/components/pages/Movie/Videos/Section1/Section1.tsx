@@ -1,7 +1,7 @@
 import { NavLink, Outlet, useParams } from "react-router-dom";
-import useVideos from "../../../../hooks/api/useVideos";
+import useVideos from "../../../../../hooks/api/useVideos";
+import useGetVideos from "../../../../../hooks/useGetVideos";
 import styles from "./Section1.module.scss";
-import useGetVideos from "../../../../hooks/useGetVideos";
 
 const Section1 = () => {
   const params = useParams();

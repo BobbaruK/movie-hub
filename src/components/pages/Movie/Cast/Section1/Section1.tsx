@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import useConfig from "../../../../hooks/api/useConfig";
-import useCredits from "../../../../hooks/api/useCredits";
-import ProfilePath, { ProfileSizes } from "../../../../utils/profilePath";
 import styles from "./Section1.module.scss";
+import useConfig from "../../../../../hooks/api/useConfig";
+import useCredits from "../../../../../hooks/api/useCredits";
+import ProfilePath, { ProfileSizes } from "../../../../../utils/profilePath";
 
 const MovieCastSection1 = () => {
   const params = useParams();

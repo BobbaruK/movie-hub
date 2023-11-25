@@ -13,6 +13,12 @@ const Teasers = () => {
 
   if (teasers?.length === 0) return <p>No teasers for this movie</p>;
 
+  const copyOfTeasers = [...[teasers]];
+
+  // TODO: solve loading time of yt vids: maybe pagination
+  console.log(teasers);
+  console.log(copyOfTeasers);
+
   return (
     <div className={["videos"].join(" ")}>
       {teasers?.map((teaser) => (
