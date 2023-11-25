@@ -7,11 +7,7 @@ const Bloopers = () => {
   const params = useParams();
   const movieId = Number(params.id);
 
-  const {
-    data: videosResponse,
-    error: videosError,
-    isLoading: videosIsLoading,
-  } = useVideos(movieId); // TODO: handle error
+  const { data: videosResponse } = useVideos(movieId); // error is handled in Movie.tsx
 
   const { bloopers } = useGetVideos(videosResponse);
 
