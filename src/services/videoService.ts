@@ -1,6 +1,6 @@
 import APIClient from "./apiClient";
 
-interface VideosResponse {
+export interface VideosResponse {
   id: number;
   results: TheVideo[];
 }

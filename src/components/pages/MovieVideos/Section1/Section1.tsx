@@ -1,6 +1,7 @@
 import { NavLink, Outlet, useParams } from "react-router-dom";
 import useVideos from "../../../../hooks/api/useVideos";
 import styles from "./Section1.module.scss";
+import useGetVideos from "../../../../hooks/useGetVideos";
 
 const Section1 = () => {
   const params = useParams();
@@ -12,26 +13,10 @@ const Section1 = () => {
     isLoading: videosIsLoading,
   } = useVideos(movieId);
 
-  const trailers = videosResponse?.results.filter(
-    (video) => video.type === "Trailer"
-  );
-  const teasers = videosResponse?.results.filter(
-    (video) => video.type === "Teaser"
-  );
-  const clips = videosResponse?.results.filter(
-    (video) => video.type === "Clip"
-  );
-  const bts = videosResponse?.results.filter(
-    (video) => video.type === "Behind the Scenes"
-  );
-  const bloopers = videosResponse?.results.filter(
-    (video) => video.type === "Bloopers"
-  );
-  const featurettes = videosResponse?.results.filter(
-    (video) => video.type === "Featurette"
-  );
+  const { trailers, teasers, clips, bts, bloopers, featurettes } =
+    useGetVideos(videosResponse);
 
-  const videoTypes2 = [
+  const videoTypes = [
     {
       label: "Trailers",
       key: "trailers",
@@ -94,7 +79,7 @@ const Section1 = () => {
             <div className="col-12 col-md-4 col-lg-3">
               <h2>Videos</h2>
               <ul className="list-group">
-                {videoTypes2.map((type, index) => (
+                {videoTypes.map((type, index) => (
                   <li
                     key={index}
                     className={[
