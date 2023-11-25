@@ -20,7 +20,7 @@ const MovieSection1 = () => {
     movie?.backdrop_path,
     BackdropSizes.original
   );
-  const { releaseDate, year } = ReleaseDateUI(movie);
+  const { releaseDate, year } = ReleaseDateUI(movie?.release_date);
 
   return (
     <section

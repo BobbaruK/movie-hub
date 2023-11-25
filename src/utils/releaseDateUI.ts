@@ -1,10 +1,10 @@
 import { MovieResponse } from "../services/movieServices";
 import { Movie } from "../services/moviesService";
 
-const ReleaseDateUI = (movie: Movie | MovieResponse | undefined) => {
+const ReleaseDateUI = (movie: string | undefined) => {
   if (movie === undefined) return {};
 
-  const release_date = new Date(movie.release_date);
+  const release_date = new Date(movie);
   const month = release_date.getMonth();
   const monthNames = [
     "Jan",

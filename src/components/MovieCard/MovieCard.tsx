@@ -19,7 +19,7 @@ const MovieCard = ({ movie }: Props) => {
   const { genres } = useFilteringMovies();
   const { data: config } = useConfig();
   const posterPath = PosterPath(config, movie.poster_path);
-  const { releaseDate } = ReleaseDateUI(movie);
+  const { releaseDate } = ReleaseDateUI(movie.release_date);
 
   return (
     <div className={["card", styles.scssecoCard].join(" ")}>

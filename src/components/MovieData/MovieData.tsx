@@ -11,7 +11,7 @@ const MovieData = () => {
   const movieId = Number(params.id);
 
   const { data: movie, isLoading, error } = useMovie(movieId);
-  const { year } = ReleaseDateUI(movie);
+  const { year } = ReleaseDateUI(movie?.release_date);
 
   const { data: config } = useConfig();
   const posterPath = PosterPath(config, movie?.poster_path, PosterSizes.w92);
