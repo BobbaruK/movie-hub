@@ -1,6 +1,3 @@
-import { MovieResponse } from "../services/movieServices";
-import { Movie } from "../services/moviesService";
-
 const ReleaseDateUI = (movie: string | undefined) => {
   if (movie === undefined) return {};
 
@@ -21,7 +18,7 @@ const ReleaseDateUI = (movie: string | undefined) => {
     "Dec",
   ];
 
-  const day = release_date.getDay();
+  const day = release_date.getDay() + 1;
   const monthName = monthNames[month];
   const year = release_date.getFullYear();
 

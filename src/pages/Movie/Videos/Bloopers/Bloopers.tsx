@@ -1,5 +1,29 @@
+import { useParams } from "react-router-dom";
+import { VideoCard } from "../../../../components/VideoCard";
+import useVideos from "../../../../hooks/api/useVideos";
+import useGetVideos from "../../../../hooks/useGetVideos";
+
 const Bloopers = () => {
-  return <div>Bloopers</div>;
+  const params = useParams();
+  const movieId = Number(params.id);
+
+  const {
+    data: videosResponse,
+    error: videosError,
+    isLoading: videosIsLoading,
+  } = useVideos(movieId); // TODO: handle error
+
+  const { bloopers } = useGetVideos(videosResponse);
+
+  if (bloopers?.length === 0) return <p>No bloopers for this movie</p>;
+
+  return (
+    <div className={["videos"].join(" ")}>
+      {bloopers?.map((blooper) => (
+        <VideoCard key={blooper.id} trailer={blooper} />
+      ))}
+    </div>
+  );
 };
 
 export default Bloopers;
