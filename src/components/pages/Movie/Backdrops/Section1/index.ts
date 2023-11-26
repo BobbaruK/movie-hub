@@ -1,0 +1,1 @@
+export {default as MovieBackdropsSection1} from "./Section1"

@@ -1,0 +1,21 @@
+.backdrops {
+  padding-block: 2rem;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  .theBackdrops {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .backdrop {
+  }
+
+  .backdropImage {
+    max-width: 100%;
+    height: auto;
+  }
+}

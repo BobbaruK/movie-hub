@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Configuration } from "../../services/configService";
 import { Backdrop } from "../../services/imagesService";
 import BackdropPath, { BackdropSizes } from "../../utils/backdropPath";
@@ -52,7 +53,9 @@ const MovieBackdrops = ({ backdrop, error, isLoading, config }: Props) => {
               </div>
             ))}
           </div>
-          <div className="mt-4">View All Backdrops ({backdrop?.length})</div>
+          <div className="mt-4">
+            <Link to="backdrops">All Backdrops ({backdrop?.length})</Link>
+          </div>
         </>
       ) : (
         <p>No backdrops for this movie.</p>

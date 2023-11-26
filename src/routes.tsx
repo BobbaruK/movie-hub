@@ -12,6 +12,7 @@ import { Clips } from "./pages/Movie/Videos/Clips";
 import { BehindTheScenes } from "./pages/Movie/Videos/BehindTheScenes";
 import { Bloopers } from "./pages/Movie/Videos/Bloopers";
 import { Featurettes } from "./pages/Movie/Videos/Featurettes";
+import { Backdrops } from "./pages/Movie/Backdrops";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
                 element: <Featurettes />,
               },
             ],
+          },
+          {
+            path: "backdrops",
+            element: <Backdrops />,
           },
         ],
       },
