@@ -60,7 +60,7 @@ const MovieBackdropsSection1 = () => {
                       src={BackdropPath(
                         config,
                         backdrop.file_path,
-                        BackdropSizes.w300
+                        BackdropSizes.w780
                       )}
                       alt=""
                       className={[styles.backdropImage].join("")}

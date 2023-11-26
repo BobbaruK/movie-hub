@@ -61,9 +61,6 @@ const MovieRecommendations = ({
               </div>
             ))}
           </div>
-          <div className="mt-4">
-            View All Recommendations ({recommendations?.total_results})
-          </div>
         </>
       ) : (
         <p>No recommendations for this movie.</p>
