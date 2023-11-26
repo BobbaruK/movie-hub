@@ -1,3 +1,5 @@
+import { SearchBar } from "../components/pages/Home/Search";
+
 const Home = () => {
   return (
     <section>
@@ -8,6 +10,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <SearchBar />
     </section>
   );
 };

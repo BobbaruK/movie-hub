@@ -8,7 +8,6 @@ const Header = () => {
       <nav className="navbar navbar-expand bg-body-tertiary">
         <div className="container">
           <div className="collapse navbar-collapse">
-            {" "}
             <Link to="/" className="navbar-brand">
               Movie hub
             </Link>

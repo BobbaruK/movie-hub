@@ -1,12 +1,6 @@
 .siteHeader {
-  // margin-block-end: 2rem;
-  &__inner {
-    align-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-block: 1rem;
-  }
+}
+
+.searchForm {
+  padding-block: 1rem;
 }
