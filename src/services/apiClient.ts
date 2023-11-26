@@ -19,7 +19,15 @@ class APIClient<T> {
   };
 
   getMovie = (idEndpoint: string) => {
-    return axiosInstance.get<T>(this.endpoint + idEndpoint).then((res) => res.data);
+    return axiosInstance
+      .get<T>(this.endpoint + idEndpoint)
+      .then((res) => res.data);
+  };
+
+  searchMovie = (searhQuery: string) => {
+    return axiosInstance
+      .get<T>(this.endpoint + "?query=" + searhQuery)
+      .then((res) => res.data);
   };
 }
 
