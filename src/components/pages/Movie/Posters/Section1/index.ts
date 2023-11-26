@@ -1,0 +1,1 @@
+export {default as MoviePostersSection1} from "./Section1"
