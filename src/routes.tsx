@@ -14,6 +14,7 @@ import { Bloopers } from "./pages/Movie/Videos/Bloopers";
 import { Featurettes } from "./pages/Movie/Videos/Featurettes";
 import { Backdrops } from "./pages/Movie/Backdrops";
 import { Posters } from "./pages/Movie/Posters";
+import Search from "./pages/Search";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
             element: <Posters />,
           },
         ],
+      },
+      {
+        path: "/search",
+        element: <Search />,
       },
     ],
   },
